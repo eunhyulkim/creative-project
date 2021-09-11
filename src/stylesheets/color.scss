@@ -1,0 +1,92 @@
+$black: #242424;
+$gray: #8c8c8c;
+$white: #F4F3EF;
+$red: #BF1932;
+$orange: #FF5E13;
+$yellow: #FFF300;
+$green: #03C04A;
+$blue: #0065A9;
+$purple: #7033AD;
+$pink: #E6007E;
+$teal: #00919C;
+$brown: #B38E50;
+
+$neon-red: #FF073A;
+$neon-orange: #FF6700;
+$neon-yellow: #FFFF00;
+$neon-green: #39FF14;
+$neon-blue: #4666FF;
+$neon-purple: #B025FF;
+$neon-pink: #FF44CC;
+$neon-teal: #08E8DE;
+$neon-brown: #C3732A;
+
+$real-white: #FFFFFF;
+
+.bg-none { background-color: inherit; }
+.bg-black { background-color: $black; color: $white; }
+.bg-gray { background-color: $gray; color: $real-white; }
+.bg-white { background-color: $white; color: $black; }
+.bg-red { background-color: $red; color: $white; }
+.bg-orange { background-color: $orange; color: $white; }
+.bg-yellow { background-color: $yellow; color: $black; }
+.bg-green { background-color: $green; color: $white; }
+.bg-blue { background-color: $blue; color: $white; }
+.bg-purple { background-color: $purple; color: $white; }
+.bg-pink { background-color: $pink; color: $white; }
+.bg-teal { background-color: $teal; color: $white; }
+.bg-brown { background-color: $brown; color: $white; }
+.bg-neon-red { background-color: $neon-red; color: $white; }
+.bg-neon-orange { background-color: $neon-orange; color: $white; }
+.bg-neon-yellow { background-color: $neon-yellow; color: $black; }
+.bg-neon-green { background-color: $neon-green; color: $black; }
+.bg-neon-blue { background-color: $neon-blue; color: $white; }
+.bg-neon-purple { background-color: $neon-purple; color: $white; }
+.bg-neon-pink { background-color: $neon-pink; color: $white; }
+.bg-neon-teal { background-color: $neon-teal; color: $black; }
+.bg-neon-brown { background-color: $neon-brown; color: $white; }
+.bg-real-white { background-color: $real-white; color: $black; }
+
+.border-black { border-color: $black; color: $black; }
+.border-gray { border-color: $gray; color: $gray; }
+.border-white { border-color: $white; color: $white; }
+.border-red { border-color: $red; color: $red; }
+.border-orange { border-color: $orange; color: $orange; }
+.border-yellow { border-color: $yellow; color: $yellow; }
+.border-green { border-color: $green; color: $green; }
+.border-blue { border-color: $blue; color: $blue; }
+.border-purple { border-color: $purple; color: $purple; }
+.border-pink { border-color: $pink; color: $pink; }
+.border-teal { border-color: $teal; color: $teal; }
+.border-brown { border-color: $brown; color: $brown; }
+.border-neon-red { border-color: $neon-red; color: $neon-red; }
+.border-neon-orange { border-color: $neon-orange; color: $neon-orange; }
+.border-neon-yellow { border-color: $neon-yellow; color: $neon-yellow; }
+.border-neon-green { border-color: $neon-green; color: $neon-green; }
+.border-neon-blue { border-color: $neon-blue; color: $neon-blue; }
+.border-neon-purple { border-color: $neon-purple; color: $neon-purple; }
+.border-neon-pink { border-color: $neon-pink; color: $neon-pink; }
+.border-neon-teal { border-color: $neon-teal; color: $neon-teal; }
+.border-neon-brown { border-color: $neon-brown; color: $neon-brown; }
+
+.black { color: $black; }
+.gray { color: $gray; }
+.white { color: $white; }
+.red { color: $red; }
+.orange { color: $orange; }
+.yellow { color: $yellow; }
+.green { color: $green; }
+.blue { color: $blue; }
+.purple { color: $purple; }
+.pink {  color: $pink; }
+.teal {  color: $teal; }
+.brown {  color: $brown; }
+.neon-red {  color: $neon-red; }
+.neon-orange {  color: $neon-orange; }
+.neon-yellow {  color: $neon-yellow; }
+.neon-green {  color: $neon-green; }
+.neon-blue {  color: $neon-blue; }
+.neon-purple {  color: $neon-purple; }
+.neon-pink {  color: $neon-pink; }
+.neon-teal {  color: $neon-teal; }
+.neon-brown {  color: $neon-brown; }

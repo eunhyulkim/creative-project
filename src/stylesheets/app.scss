@@ -1,0 +1,83 @@
+@import './ui-kit.scss';
+
+.App {
+    @include flexible('column');
+}
+
+.icon--button {
+    margin-left: 8px;
+}
+
+@media only screen and (max-width: $mobile-width) {
+    .counter {
+        display: none;
+    }
+}
+
+.editor {
+    margin-top: 2.85714286em;
+    min-height: calc(100vh - 2.85714286em);
+}
+
+.config-item {
+    &:first-of-type {
+        margin-top: 1.5rem;
+    }
+    
+    [class*="--header"] {
+        @include flexible('between');
+    }
+}
+
+.select, .checkbox, .input {
+    margin-bottom: 0.5rem;
+}
+
+.box {
+    &--report {
+        @include flexible('column');
+        border-radius: 8px;
+        padding: 1rem;
+        
+        & .box--header {
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        & .box--body {
+            font-size: 1.1rem;
+            font-weight: 900;
+        }
+    }
+}
+
+.error--group {
+    position: relative;
+    margin-top: 1.5rem;
+
+    &--description {
+        display: none;
+        font-size: 0.8rem;
+        border-radius: 2px;
+        padding: 3px;
+        position: absolute;
+        top: 4px;
+        left: 10px;
+        @include shadowing;
+    }
+
+    &:hover &--description {
+        display: block;
+    }
+    
+    & .error {
+        margin-top: 0.5rem;
+        &--location {
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+.toggle--label {
+    margin-left: 1rem;
+}

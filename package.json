@@ -1,0 +1,91 @@
+{
+  "name": "writer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "classnames": "^2.3.1",
+    "html-react-parser": "^1.2.7",
+    "immer": "^9.0.5",
+    "lodash": "^4.17.21",
+    "node-sass": "^6.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:no-watch": "yarn test --watchAll=false --json --outputFile=./src/jest-test-results.json",
+    "test:watch": "yarn test --json --outputFile=./src/jest-test-results.json",
+    "eject": "react-scripts eject",
+    "storybook": "NODE_PATH=src start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "prettier": "prettier --write --config ./.prettierrc \"**/*.{ts,tsx}\"",
+    "lint": "eslint './src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx}'"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.3.0",
+    "@storybook/addon-essentials": "^6.3.0",
+    "@storybook/addon-jest": "^6.3.0",
+    "@storybook/addon-links": "^6.3.0",
+    "@storybook/node-logger": "^6.3.0",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.3.0",
+    "@types/lodash": "^4.14.172",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.1",
+    "sass": "^1.39.0",
+    "sass-loader": "^11.1.1",
+    "storybook-react-context": "^0.4.0",
+    "ts-jest": "^27.0.3"
+  }
+}
