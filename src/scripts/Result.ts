@@ -38,4 +38,12 @@ export default class Result {
 		}
 		return this;
 	}
+
+	sort(): Result {
+		this._errors.sort(
+			(error1, error2) =>
+				error1.location[0] * 10000 + error1.location[1] - error2.location[0] * 10000 - error2.location[1]
+		);
+		return this;
+	}
 }

@@ -43,6 +43,7 @@ function testAll(paragraphs: string[][], config: Config): Result {
 	cases.forEach((testCase) => {
 		result.addError(testCase(paragraphs, config));
 	});
+	result.sort();
 	return result;
 }
 
