@@ -35,7 +35,7 @@ function WritingApp(): JSX.Element {
 			<Helmet>
 				<title>테크니컬 라이터: 효과적 글쓰기</title>
 			</Helmet>
-			<div className="WritingApp">
+			<div className="writing-app">
 				<Header type="fixed">
 					<strong>테크니컬 라이터</strong>
 					<Group classes={['header--section']}>
