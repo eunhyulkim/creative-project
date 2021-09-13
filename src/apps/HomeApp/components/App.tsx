@@ -15,7 +15,7 @@ import {
 
 const apps = [
 	{
-		path: '/writer',
+		path: '/#/writer',
 		name: `테크니컬 라이팅`,
 	},
 ];

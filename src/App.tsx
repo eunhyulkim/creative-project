@@ -1,17 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { WritingApp, HomeApp } from './apps/type';
 
 function App(): JSX.Element {
 	return (
-		<>
-			<Router>
-				<Switch>
-					<Route path="/writer" component={WritingApp} />
-					<Route path="/" component={HomeApp} />
-				</Switch>
-			</Router>
-		</>
+		<Router basename="/">
+			<Switch>
+				<Route path="/writer" component={WritingApp} />
+				<Route path="/" component={HomeApp} />
+			</Switch>
+		</Router>
 	);
 }
 
