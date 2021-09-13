@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { WritingApp, HomeApp } from './components/type';
+import { WritingApp, HomeApp } from './apps/type';
 
 function App(): JSX.Element {
 	return (
