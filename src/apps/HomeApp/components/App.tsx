@@ -3,7 +3,15 @@ import { Link, Route, RouteComponentProps } from 'react-router-dom';
 import 'stylesheets/home-app.scss';
 import _, { random } from 'lodash';
 import classNames from 'classnames';
-import { Universe, ImageCursorHandler, Navigation, IssuePage, ThemeToggleIcon, ThemeContext } from 'apps/HomeApp/type';
+import {
+	Universe,
+	ImageCursorHandler,
+	Navigation,
+	IssuePage,
+	InfoPage,
+	ThemeToggleIcon,
+	ThemeContext,
+} from 'apps/HomeApp/type';
 
 const apps = [
 	{
@@ -28,6 +36,9 @@ function App({ match }: RouteComponentProps): JSX.Element {
 				<Route exact path={match.path}>
 					<Universe apps={apps} />
 					<div className={classNames(['image-cursor', { dark: theme === 'dark' }])}>visit</div>
+				</Route>
+				<Route path={`${match.path}info`}>
+					<InfoPage />
 				</Route>
 				<Route path={`${match.path}issue`}>
 					<IssuePage />

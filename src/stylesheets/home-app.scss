@@ -3,6 +3,12 @@
 
 $primary-font: 'Song Myung';
 
+@keyframes rotateX {
+	100% {
+    	transform: rotateX(360deg);
+    }
+}
+
 .home-app {
     padding: 2rem;
     overflow-x: hidden;
@@ -216,6 +222,68 @@ $primary-font: 'Song Myung';
             }
         }
     }
-}
 
+    & .info-page {
+        padding-left: 5vw;
+        
+        &.dark {
+            color: $real-white;
+        }
+
+        &--title {
+            margin: 5rem 0;
+            font: {
+                size: 5rem;
+                family: $primary-font;
+            }
+
+            @media only screen and (max-width: $mobile-width) {
+                margin: 3rem 0;
+                font-size: 2rem;
+            }
+    
+            & div {
+                margin-bottom: 1rem;
+
+                @media only screen and (max-width: $mobile-width) {
+                    margin-bottom: 0.5rem;
+                }
+            }
+
+            & .dynamic-word {
+                position: relative;
+                display: inline-block;
+                background-color: $black;
+                color: $white;
+                margin-right: 0.2rem;
+                animation: rotateX 2s linear infinite;
+                backface-visibility: hidden;
+
+                &.dark {
+                    background-color: $real-white;
+                    color: $black;
+                }
+            }
+        }
+
+        &--description {
+            margin-top: 2rem;
+            width: 80%;
+            line-height: 2.2rem;
+            font: {
+                size: 1.4rem;
+                family: 'ui-sans-serif';
+            }
+
+            & div {
+                margin-bottom: 1.2rem;
+            }
+
+            @media only screen and (max-width: $mobile-width) {
+                width: 75vw;
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
 
