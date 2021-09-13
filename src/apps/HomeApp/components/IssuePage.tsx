@@ -14,6 +14,8 @@ const onsubmit = (event: React.FormEvent<HTMLFormElement>) => {
 	const token = process.env.REACT_APP_GIT_API_TOKEN;
 	const subject = event.currentTarget.select.value;
 	const message = event.currentTarget.message.value;
+	console.log(columnId, token, subject, message);
+	event.preventDefault();
 	axios.post(
 		`https://api.github.com/projects/columns/${columnId}/cards`,
 		{
