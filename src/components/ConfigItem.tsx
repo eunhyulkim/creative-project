@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Config, ConfigNames, RangeType, SelectType, CheckboxType, InputType } from 'scripts/Config';
 import { Heading, Toggle, Description, Range, Select, Checkbox, Input } from './type';
-import { ConfigContext } from './App';
+import { ConfigContext } from '../apps/WritingApp/App';
 
 interface ConfigItemProps {
 	name: ConfigNames;

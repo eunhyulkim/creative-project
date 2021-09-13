@@ -18,7 +18,7 @@ import 'stylesheets/app.scss';
 export const ConfigContext = React.createContext(CONFIG_INITIAL_STATE);
 export const ErrorsContext = React.createContext([] as WritingError[]);
 
-function App(): JSX.Element {
+function WritingApp(): JSX.Element {
 	const modalHandler = useModal();
 	const [count, setCount] = useCounter();
 	const [errors, analysis] = useError();
@@ -28,7 +28,7 @@ function App(): JSX.Element {
 	const information = _.last(errors)?.toMessage() || '';
 
 	return (
-		<div className="App">
+		<div className="WritingApp">
 			<Header type="fixed">
 				<strong>테크니컬 라이터</strong>
 				<Group classes={['header--section']}>
@@ -55,4 +55,4 @@ function App(): JSX.Element {
 	);
 }
 
-export default App;
+export default WritingApp;

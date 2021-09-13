@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { ErrorsContext } from 'components/App';
+import WritingApp, { ErrorsContext } from 'apps/WritingApp/App';
 import { ReportModal } from 'components/type';
 import { WritingError } from 'scripts/type';
 import { ModalHandler, useModal } from 'hooks/type';
@@ -9,7 +9,7 @@ let app: HTMLElement;
 let ReportIcon: Element | null;
 
 beforeEach(() => {
-	const { container } = render(<App />);
+	const { container } = render(<WritingApp />);
 	app = container;
 	ReportIcon = app.querySelector('.report.icon--button');
 });

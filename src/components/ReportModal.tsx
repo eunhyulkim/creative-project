@@ -4,7 +4,7 @@ import { WritingError } from 'scripts/type';
 import classNames from 'classnames';
 import _ from 'lodash';
 import { Modal, Heading, Description } from './type';
-import { ErrorsContext } from './App';
+import { ErrorsContext } from '../apps/WritingApp/App';
 
 interface ReportModalProps {
 	handler: ModalHandler;

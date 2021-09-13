@@ -4,7 +4,7 @@ import { isConfigName, CheckboxType } from 'scripts/type';
 import produce from 'immer';
 import _ from 'lodash';
 import { Modal, ModalStateType, Heading, Description, ConfigItem, Range } from './type';
-import { ConfigContext } from './App';
+import { ConfigContext } from '../apps/WritingApp/App';
 import Toggle from './Toggle';
 
 interface ConfigModalProps {

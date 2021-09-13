@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ReportModal } from 'components/type';
 import { useModal } from 'hooks/type';
 import { WritingError } from 'scripts/type';
-import { ErrorsContext } from 'components/App';
+import { ErrorsContext } from 'apps/WritingApp/App';
 
 const ReportModalWithContext = ({ errors }: { errors: WritingError[] }): JSX.Element => {
 	const handler = useModal();

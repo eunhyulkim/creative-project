@@ -7,10 +7,11 @@ interface SelectProps {
 	value?: string;
 	name: string;
 	classes?: string[];
+	label?: string;
 }
 
-const Select = ({ options, value, name, classes }: SelectProps): JSX.Element => {
-	return (
+const Select = ({ options, label, value, name, classes }: SelectProps): JSX.Element => {
+	const content = (
 		<select name={name} className={classNames(classes, 'select')} defaultValue={value}>
 			{options.map((opt) => (
 				<option value={opt} key={opt}>
@@ -18,6 +19,14 @@ const Select = ({ options, value, name, classes }: SelectProps): JSX.Element => 
 				</option>
 			))}
 		</select>
+	);
+	return label ? (
+		<label htmlFor={name}>
+			{label}
+			{content}
+		</label>
+	) : (
+		content
 	);
 };
 

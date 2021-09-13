@@ -21,6 +21,9 @@ export { default as Select } from './Select';
 export { default as Checkbox } from './Checkbox';
 export { default as Input } from './Input';
 
+export { default as WritingApp } from '../apps/WritingApp/App';
+export { default as HomeApp } from '../apps/HomeApp/components/App';
+
 export type ModalType = 'CONFIG' | 'REPORT' | '';
 export interface ModalStateType {
 	[key: string]: boolean | string | number | Array<string> | Array<number> | ModalStateType;
