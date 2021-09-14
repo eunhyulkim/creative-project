@@ -38,6 +38,10 @@ html { font: { size: 14px; family: sans-serif; } }
     }
 }
 
+.flex--center {
+    @include flexible('center');
+}
+
 @mixin shadowing() {
     -webkit-box-shadow: 0 1px 3px 0 rgb(0, 0, 0, 12%);
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 2px 1px, rgba(0, 0, 0, 0.15) 0px 4px 16px, rgba(255, 255, 255, 0.12) 0px 0px 2px inset;
@@ -318,6 +322,15 @@ input[type=range] {
     &:focus {
         outline: none;
     }
+
+    &.bottom {
+        border: none;
+        border-bottom: 1px solid gray;
+    }
+
+    &.center {
+        text-align: center;
+    }
 }
 
 [class*="badge"] {
@@ -334,4 +347,21 @@ input[type=range] {
             size: 1rem;
         }
     }
+}
+
+.paragraph {
+    line-height: 1.2rem;
+    
+    &.center {
+        @include flexible('column');
+    }
+
+    & > div {
+        font-size: 0.9rem;
+        margin-top: 0.3rem;
+    }
+}
+
+.text {
+    font-size: 18px;
 }

@@ -6,7 +6,6 @@ import WritingError from './scripts/WritingError';
 export { WritingError };
 export { CONFIG_INITIAL_STATE, isConfigName };
 
-export { default as Button } from './components/Button';
 export { default as Checkbox } from './components/Checkbox';
 export { default as ConfigButton } from './components/ConfigButton';
 export { default as ConfigItem } from './components/ConfigItem';
@@ -17,9 +16,7 @@ export { default as Description } from './components/Description';
 export { default as Editor } from './components/Editor';
 export { default as Group } from './components/Group';
 export { default as Header } from './components/Header';
-export { default as Heading } from './components/Heading';
 export { default as Information } from './components/Information';
-export { default as Input } from './components/Input';
 export { default as Modal } from './components/Modal';
 export { default as ModalAdapter } from './components/ModalAdapter';
 export { default as Range } from './components/Range';

@@ -3,6 +3,7 @@ export type ColorType =
 	| 'secondary'
 	| 'black'
 	| 'white'
+	| 'real-white'
 	| 'red'
 	| 'orange'
 	| 'yellow'

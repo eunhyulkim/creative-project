@@ -18,6 +18,10 @@ const apps = [
 		path: '/#/writer',
 		name: `테크니컬 라이팅`,
 	},
+	{
+		path: '/#/create-book',
+		name: `책 만들기`,
+	},
 ];
 
 function App({ match }: RouteComponentProps): JSX.Element {

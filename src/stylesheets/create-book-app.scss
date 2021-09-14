@@ -1,0 +1,155 @@
+@import './ui-kit.scss';
+@import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
+
+$primary-font: 'Song Myung';
+
+.create-book-app {
+    button.next, button.complete {
+        margin-top: 1.5rem;
+    }
+
+    .home-page {
+        @include flexible('column');
+        padding-top: 10rem;
+        
+        @media only screen and (max-width: $mobile-width) {
+            padding-top: 30vw;
+        }
+
+        & img.main-logo {
+            width: 20vw;
+            min-width: 180px;
+            margin-bottom: 1rem;
+        }
+
+        & > .heading--second {
+            font-family: $primary-font;
+        }
+
+        & > button {
+            margin-top: 2rem;
+        }
+    }
+
+    .title-page, .author-page {
+        @include flexible('column');
+        margin-top: 6rem;
+
+        & > input {
+            width: 80vw;
+            max-width: 400px;
+            font-size: 1.2rem;
+            padding-bottom: 0.6rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        & .cover-canvas {
+            @include shadowing;
+            position: relative;
+            width: 148px;
+            height: 210px;
+            background-color: $real-white;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+
+            & .cover {
+                width: inherit;
+                height: inherit;
+
+                &--title {
+                    position: absolute;
+                    left: 15px;
+                    top: 15px;
+                    display: flex;
+                    width: 118px;
+                    height: 180px;
+                    font-family: 'Song Myung';
+
+                    &.pos--CT {
+                        justify-content: center;
+                    }
+
+                    &.pos--RT {
+                        justify-content: flex-end;
+                    }
+
+                    &.pos--LC {
+                        align-items: center;
+                    }
+
+                    &.pos--CC {
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    &.pos--RC {
+                        justify-content: flex-end;
+                        align-items: center
+                    }
+
+                    &.pos--LD {
+                        align-items: flex-end;
+                    }
+
+                    &.pos--CD {
+                        justify-content: center;
+                        align-items: flex-end;
+                    }
+
+                    &.pos--RD {
+                        justify-content: flex-end;
+                        align-items: flex-end;
+                    }
+
+                    & .align--left {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    & .align--middle {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    & .align--right {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                    }
+                }
+            }
+
+            .cover--author {
+                position: absolute;
+                left: 15px;
+                top: 15px;
+                display: flex;
+                width: 118px;
+                height: 180px;
+                font-family: 'Song Myung';
+            }
+
+            .author--pos {
+                &--LT, &--CT, &--RT, &--LC, &--CC, &--RC {
+                    justify-content: center;
+                    align-items: flex-end;
+                }
+    
+                &--LD, &--CD, &--RD {
+                    justify-content: center;
+                }
+            }
+        }
+
+        & .icon-container {
+            @include flexible('center');
+
+            & .random-icon {
+                @include shadowing;
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -9,7 +9,7 @@ interface ButtonProps {
 	round?: 'square' | 'circle';
 	color?: ColorType;
 	type?: ButtonType;
-	classes?: string[];
+	classes?: string[] | string;
 	label: string;
 	children?: React.ReactNode;
 	onClick?: () => void;

@@ -6,11 +6,10 @@ import {
 	ConfigContext,
 	Modal,
 	ModalStateType,
-	Heading,
 	Description,
 	ConfigItem,
 } from 'apps/WritingApp/type';
-
+import { Heading } from 'apps/common';
 import produce from 'immer';
 import _ from 'lodash';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'apps/WritingApp/components/Button';
+import Button from 'apps/common/components/Button';
 import { fireEvent, render } from '@testing-library/react';
 
 describe('Button', () => {

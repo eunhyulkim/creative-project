@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Heading from 'apps/WritingApp/components/Heading';
+import { Heading } from 'apps/common';
 
 export default {
 	title: 'Element/Heading',
