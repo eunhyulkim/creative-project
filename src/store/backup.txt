@@ -1,0 +1,84 @@
+
+const BookCreate: ThunkCreator = () => async (__, getState) => {
+	if (!getState) return;
+	const { book } = getState();
+	const { title, titleStyle, author, authorStyle, cover, color, chapters } = book;
+	const container = document.getElementById('html-temp-container');
+	const pages = [] as number[];
+	const doc = new JsPDF('p', 'mm', 'a5');
+
+	if (!container) return;
+
+	const renderElement = async (
+		restHeight: number,
+		header: HTMLDivElement | null,
+		body: HTMLDivElement,
+		element: HTMLDivElement,
+		footer: HTMLDivElement,
+		page: number
+	): Promise<number> => {
+		if (restHeight <= 0) return page - 1;
+		if (page % 2 === 0) {
+			header?.classList.add('right');
+			footer.classList.add('right');
+		} else {
+			header?.classList.remove('right');
+			footer.classList.remove('right');
+		}
+
+		const canvas = await html2canvas(container);
+		container.appendChild(canvas);
+		const image = canvas.toDataURL('image/png');
+		doc.addPage('a5', 'p');
+		doc.addImage(image, 'PNG', 0, 0, 148, 210);
+		container.removeChild(canvas);
+		element.style.top = `${String((parseInt(element.style.top, 10) || 0) - (header ? 540 : 630))}px`;
+		const space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+		footer.innerHTML =
+			(page + 1) % 2 === 0 ? `${title}${space}${String(page + 1)}` : `${String(page + 1)}${space}${title}`;
+		if (header) {
+			header.classList.add('none');
+			body.classList.add('extend');
+		}
+		const renderedPage = await renderElement(restHeight - (header ? 540 : 630), null, body, element, footer, page + 1);
+		return renderedPage;
+	};
+
+	const renderTable = async () => {
+		ReactDOM.render(<BookTable chapters={chapters} pages={pages} />, container, async () => {
+			const canvas = await html2canvas(container);
+			container.appendChild(canvas);
+			const image = canvas.toDataURL('image/png');
+			doc.insertPage(2);
+			doc.addImage(image, 'PNG', 0, 0, 148, 210);
+			container.removeChild(canvas);
+			doc.save(`${author}_${title}`);
+			container.remove();
+		});
+	};
+
+	const renderBody = async (chapterNumber = 1, prevRenderedPage = 0) => {
+		const chapter = chapters[chapterNumber - 1];
+		ReactDOM.render(
+			<BookContent chapter={prevRenderedPage + 1} title={chapter.title} body={chapter.body} />,
+			container,
+			async () => {
+				const header: HTMLDivElement = document.querySelector('.content--title') as HTMLDivElement;
+				const body = document.querySelector('.content--body') as HTMLDivElement;
+				const element: HTMLDivElement = body.querySelector('.wrapper') as HTMLDivElement;
+				const footer: HTMLDivElement = document.querySelector('.content--number') as HTMLDivElement;
+				if (!header || !body || !element || !footer) return;
+				header.classList.remove('none');
+				body.classList.remove('extend');
+				element.style.top = '0px';
+				pages.push(prevRenderedPage + 1);
+				const restHeight = body.scrollHeight;
+				const renderedPage = await renderElement(restHeight, header, body, element, footer, prevRenderedPage + 1);
+				if (chapterNumber < chapters.length) {
+					renderBody(chapterNumber + 1, renderedPage);
+				} else {
+					renderTable();
+				}
+			}
+		);
+	};

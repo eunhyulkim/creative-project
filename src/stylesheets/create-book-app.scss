@@ -4,18 +4,17 @@
 $primary-font: 'Song Myung';
 
 .create-book-app {
+    @include flexible('column');
+    min-height: 100vh;
+    justify-content: center;
+
     button.next, button.complete {
         margin-top: 1.5rem;
     }
 
-    .home-page {
+    .home-page, .terms-page, .complete-page {
         @include flexible('column');
-        padding-top: 10rem;
         
-        @media only screen and (max-width: $mobile-width) {
-            padding-top: 30vw;
-        }
-
         & img.main-logo {
             width: 20vw;
             min-width: 180px;
@@ -31,9 +30,42 @@ $primary-font: 'Song Myung';
         }
     }
 
+    .content-page {
+        @include flexible('column');
+        padding: 0 15vw 0 15vw;
+
+        input {
+            text-align: center;
+            margin: 2rem 0;
+            width: 250px;
+            padding-bottom: 0.5rem;
+        }
+
+        textarea {
+            width: calc(250px - 2rem);
+            line-height: 1.4rem;
+            border: 1px solid gray;
+            height: 22rem;                
+            &:focus {
+                outline: none;
+            }
+            padding: 1rem;
+        }        
+
+        & .button-group {
+            margin-top: 1rem;
+            width: 250px;
+            display: flex;
+            justify-content: center;
+
+            & button:first-child {
+                margin-right: 2rem;
+            }
+        }
+    }
+
     .title-page, .author-page {
         @include flexible('column');
-        margin-top: 6rem;
 
         & > input {
             width: 80vw;
@@ -45,25 +77,41 @@ $primary-font: 'Song Myung';
         }
 
         & .cover-canvas {
-            @include shadowing;
-            position: relative;
-            width: 148px;
-            height: 210px;
-            background-color: $real-white;
             margin-top: 2rem;
             margin-bottom: 2rem;
+            width: 148px;
+            height: 210px;
+        }
+        
+        & .cover--title {
+            left: 15px;
+            top: 15px;
+            width: 118px;
+            height: 180px;
+        }
 
-            & .cover {
+        & .cover--author {
+            left: 15px;
+            top: 15px;
+            width: 118px;
+            height: 180px;
+            font-size: 0.5rem;
+        }
+    }
+
+    .title-page, .author-page, #html-temp-container {
+        & .cover-canvas {
+            @include shadowing;
+            position: relative;
+            background-color: $real-white;
+
+            & .cover, #html-temp-container {
                 width: inherit;
                 height: inherit;
 
                 &--title {
                     position: absolute;
-                    left: 15px;
-                    top: 15px;
                     display: flex;
-                    width: 118px;
-                    height: 180px;
                     font-family: 'Song Myung';
 
                     &.pos--CT {
@@ -95,6 +143,7 @@ $primary-font: 'Song Myung';
                     &.pos--CD {
                         justify-content: center;
                         align-items: flex-end;
+                        transform: translateY(-6%);
                     }
 
                     &.pos--RD {
@@ -123,11 +172,7 @@ $primary-font: 'Song Myung';
 
             .cover--author {
                 position: absolute;
-                left: 15px;
-                top: 15px;
                 display: flex;
-                width: 118px;
-                height: 180px;
                 font-family: 'Song Myung';
             }
 
@@ -135,6 +180,7 @@ $primary-font: 'Song Myung';
                 &--LT, &--CT, &--RT, &--LC, &--CC, &--RC {
                     justify-content: center;
                     align-items: flex-end;
+                    transform: translateY(-6%);
                 }
     
                 &--LD, &--CD, &--RD {
@@ -149,6 +195,152 @@ $primary-font: 'Song Myung';
             & .random-icon {
                 @include shadowing;
                 cursor: pointer;
+            }
+        }
+    }
+
+    .complete-page {
+
+        &.has-container {
+            margin-top: calc((100vh - 350px) / 2);
+        }
+
+        & .status, .status-value {
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        & .status {
+            @include shadowing;
+            @include transitionAll;
+            position: relative;
+            width: 180px;
+            background: $gray;
+            margin-top: 2rem;
+
+            &[data-complete="true"]::after {
+                content: "✔️";
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 5px;
+                top: -5px;
+                right: -30px;
+            }
+        }
+
+        .status-value {
+            @include transitionAll;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: rgb(0,212,255);
+            background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(4,78,97,1) 83%, rgba(16,87,163,1) 100%);
+        }
+        
+        #html-temp-container {
+            position: relative;
+            width: 592px;
+            height: 840px;
+
+            & .cover--title {
+                left: 60px;
+                top: 60px;
+                width: 472px;
+                height: 720px;
+                font-size: 3rem;
+            }
+            
+            & .cover--author {
+                left: 60px;
+                top: 60px;
+                width: 472px;
+                height: 720px;
+                font-size: 1.5rem;
+            }
+            
+            & .content--title {
+                display: flex;
+                font-size: 30px;
+                font-family: $primary-font;
+                padding: 80px 80px 66px 80px;
+                text-align: right;
+                font-family: $primary-font;
+
+                &.none {
+                    display: none;
+                }
+
+                &.right {
+                    justify-content: flex-end;
+                }
+
+                &.left {
+                    justify-content: flex-start;
+                }
+
+            }
+
+            & .content--body {
+                margin: 0px 80px 0px 80px;
+                height: 540px;
+                overflow-y: hidden;
+                line-height: 30px;
+                text-align: justify;
+
+                &.extend {
+                    margin-top: 90px;
+                    height: 630px;
+                }
+            }
+
+            & .wrapper {
+                position: relative;
+            }
+
+            & .content--number {
+                margin: 40px 80px 60px 80px;
+                display: flex;
+
+                &.right {
+                    justify-content: flex-end;
+                }
+
+                &.left {
+                    justify-content: flex-start;
+                }
+            }
+
+            & .book--table {
+                margin: 80px 80px 60px 80px;
+                font-family: $primary-font;
+                height: 700px;
+                overflow-y: hidden;
+
+                &--subject {
+                    font-size: 30px;
+                    margin-bottom: 5rem;
+                }
+
+                & .book--table--row {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 1.5rem;
+
+                    & .title {
+                        margin-right: 1rem;
+                    }
+
+                    & hr {
+                        border-top: 1px solid $black;
+                        width: 120px;
+                    }
+
+                    & .page {
+                        margin-left: 1rem;
+                        font-weight: bold;
+                    }
+                }
             }
         }
     }

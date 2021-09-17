@@ -4,7 +4,6 @@ import {
 	ConfigButton,
 	Counter,
 	Editor,
-	Group,
 	Header,
 	Information,
 	ModalAdapter,
@@ -16,7 +15,7 @@ import {
 	useModal,
 	useConfig,
 } from 'apps/WritingApp/type';
-
+import { Group } from 'apps/common';
 import _ from 'lodash';
 import 'stylesheets/writing-app.scss';
 import Helmet from 'react-helmet';
@@ -34,6 +33,7 @@ function WritingApp(): JSX.Element {
 		<>
 			<Helmet>
 				<title>테크니컬 라이터: 효과적 글쓰기</title>
+				<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
 			</Helmet>
 			<div className="writing-app">
 				<Header type="fixed">

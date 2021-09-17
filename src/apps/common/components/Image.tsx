@@ -10,7 +10,7 @@ interface ImageProps {
 }
 
 const Image = ({ src, classes, alt, link }: ImageProps): JSX.Element => {
-	const image = <img alt={alt} src="create-book-main.png" className={classNames(classes)} />;
+	const image = <img alt={alt} src={`/${src}`} className={classNames(classes)} />;
 	return link ? <a href={link}>{image}</a> : image;
 };
 

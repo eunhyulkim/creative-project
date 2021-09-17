@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 interface GroupProps {
-	classes?: string[];
+	classes?: string[] | string;
 	children?: React.ReactNode;
 }
 

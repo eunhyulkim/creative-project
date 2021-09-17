@@ -39,39 +39,13 @@ function parseTitle(title: string, titleStyle: TitleStyle) {
 	}
 }
 
-function parseColor(cover: number, color: string, titleStyle: TitleStyle) {
-	const { position } = titleStyle;
-	const [white, black] = ['real-white', 'black'];
-
-	if (color === colors[colors.length - 1]) return black;
-
-	switch (cover) {
-		case 0:
-			return white;
-		case 1:
-			return position[1] === 'D' ? white : black;
-		case 2:
-			return position[0] === 'L' ? black : white;
-		case 3:
-			return position === 'LC' || position === 'RD' ? white : black;
-		case 4:
-			return black;
-		case 5:
-			return position === 'RT' || position === 'LD' ? white : black;
-		case 6:
-			return position[1] === 'T' ? white : black;
-		case 7:
-			return position[1] === 'D' ? white : black;
-		default:
-			return white;
-	}
-}
-
 function CoverTitle({ cover, color, title, titleStyle }: CoverTitleProps): JSX.Element {
 	const element = parseTitle(title, titleStyle);
-	const fontColor = parseColor(cover, color, titleStyle);
 	return (
-		<div className={classNames('cover--title', `size--${titleStyle.size}`, `pos--${titleStyle.position}`, fontColor)}>
+		<div
+			style={{ color }}
+			className={classNames('cover--title', `size--${titleStyle.size}`, `pos--${titleStyle.position}`)}
+		>
 			<div className={`align--${titleStyle.align}`}>{element}</div>
 		</div>
 	);

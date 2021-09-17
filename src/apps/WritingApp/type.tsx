@@ -14,7 +14,6 @@ export { default as CopyButton } from './components/CopyButton';
 export { default as Counter } from './components/Counter';
 export { default as Description } from './components/Description';
 export { default as Editor } from './components/Editor';
-export { default as Group } from './components/Group';
 export { default as Header } from './components/Header';
 export { default as Information } from './components/Information';
 export { default as Modal } from './components/Modal';

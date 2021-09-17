@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { HomePage, TitlePage, AuthorPage, ContentPage } from 'apps/CreateBookApp';
+import { HomePage, TitlePage, AuthorPage, ContentPage, TermsPage, CompletePage } from 'apps/CreateBookApp';
 import 'stylesheets/create-book-app.scss';
 
 const App = (): JSX.Element => {
@@ -17,6 +17,8 @@ const App = (): JSX.Element => {
 					<Route path={`${url}/title`} component={TitlePage} />
 					<Route path={`${url}/author`} component={AuthorPage} />
 					<Route path={`${url}/content`} component={ContentPage} />
+					<Route path={`${url}/terms`} component={TermsPage} />
+					<Route path={`${url}/complete`} component={CompletePage} />
 					<Route path={url} component={HomePage} />
 				</Switch>
 			</div>
