@@ -262,7 +262,12 @@ const BookCreate: ThunkCreator = () => async (__, getState) => {
 			await addPage(false, true);
 			setProgress(100);
 			document.querySelector('.status')?.setAttribute('data-complete', 'true');
-			doc.save(`${author}_${title}`);
+			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+				const blob = doc.output();
+				window.open(URL.createObjectURL(blob));
+			} else {
+				doc.save(`${author}_${title}`);
+			}
 			container.remove();
 			document.querySelector('.complete-page')?.classList.remove('has-container');
 		});
