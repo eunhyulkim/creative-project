@@ -19,7 +19,7 @@
 - Immer, Helmet, Axios...
 
 ---
-### 현재까지 업로드된 프로젝트👐
+### 현재까지 업로드된 프로젝트들👐
 
-- 린터가 탑재된 테크니컬 [테크니컬 라이터](https://github.com/eunhyulkim/creative-project/tree/main/src/apps/WritingApp)
-- 손 쉽게 책 형식의 PDF를 만드는 [북 크리에이터](https://github.com/eunhyulkim/creative-project/tree/main/src/apps/CreateBookApp)
+- 📝 린터가 탑재된 [테크니컬 라이터](https://github.com/eunhyulkim/creative-project/tree/main/src/apps/WritingApp)
+- 📚 손 쉽게 책 형식의 PDF를 만드는 [북 크리에이터](https://github.com/eunhyulkim/creative-project/tree/main/src/apps/CreateBookApp)
