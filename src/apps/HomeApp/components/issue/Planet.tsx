@@ -24,12 +24,12 @@ const Planet = ({ app }: PlanetProps): JSX.Element => {
 
 	return (
 		<>
-			<Track style={styles} />
 			<a href={app.path} style={styles} className="planet">
 				{app.name.split(' ').map((word) => (
 					<div key={word}>{word}</div>
 				))}
 			</a>
+			<Track style={styles} />
 		</>
 	);
 };
