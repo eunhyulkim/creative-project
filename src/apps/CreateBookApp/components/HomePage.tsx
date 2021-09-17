@@ -26,7 +26,7 @@ function HomePage(): JSX.Element {
 			</Heading>
 			<Paragraph
 				center
-				content="굳이 인디자인을 배워야만 할까요?\n복사/붙여넣기만으로 충분합니다.\n빠르게 당신의 책을 만드세요."
+				content="복사/붙여넣기만으로 충분합니다.\n빠르게 당신의 책을 만드세요.\n(현재 Desktop만 지원)"
 			/>
 			<Button size="large" round="circle" color="black" label="시작하기" onClick={() => dispatch(onClick)} />
 		</div>
