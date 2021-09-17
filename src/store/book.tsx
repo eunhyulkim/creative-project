@@ -263,7 +263,7 @@ const BookCreate: ThunkCreator = () => async (__, getState) => {
 			setProgress(100);
 			document.querySelector('.status')?.setAttribute('data-complete', 'true');
 			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				const blob = doc.output();
+				const blob = doc.output('blob');
 				window.open(URL.createObjectURL(blob));
 			} else {
 				doc.save(`${author}_${title}`);
