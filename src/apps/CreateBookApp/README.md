@@ -9,16 +9,12 @@ Typescript, React로 개발하였으며 상태 관리는 Redux로 처리했습�
 # 스크린샷
 
 <p align="center">
-  <img src="/public/readme/create-book1.png" alt="표지 생성 화면" width="738">
+  <img src="/public/readme/create-book1.png" alt="표지 생성 화면" width="330">
+  <img src="/public/readme/create-book2.png" alt="본문 입력 화면" width="330">
 </p>
 <p align="center">
-  <img src="/public/readme/create-book2.png" alt="본문 입력 화면" width="738">
-</p>
-<p align="center">
-  <img src="/public/readme/create-book3.png" alt="대기 화면" width="738">
-</p>
-<p align="center">
-  <img src="/public/readme/create-book4.png" alt="결과 화면" width="738">
+  <img src="/public/readme/create-book3.png" alt="대기 화면" width="330">
+  <img src="/public/readme/create-book4.png" alt="결과 화면" width="400">
 </p>
 
 # 해결해야 할 문제들
