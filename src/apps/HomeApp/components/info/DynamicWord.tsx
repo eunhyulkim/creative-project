@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import classNames from 'classnames';
-import { ThemeContext } from 'apps/HomeApp/type';
+import { ThemeContext } from 'apps/HomeApp';
 
 interface DynamicWordProps {
 	classes?: string[];

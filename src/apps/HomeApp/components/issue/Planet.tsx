@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { Track } from 'apps/HomeApp/type';
+import { Track } from 'apps/HomeApp/components';
 
 interface PlanetProps {
 	app: {

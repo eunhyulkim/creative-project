@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
-import { ThemeContext } from 'apps/HomeApp/type';
+import { ThemeContext } from 'apps/HomeApp';
 
 interface NavigationProps {
 	title: string;

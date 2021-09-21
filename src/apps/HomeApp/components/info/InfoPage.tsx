@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import { ThemeContext, DynamicWord } from 'apps/HomeApp/type';
+import { DynamicWord } from 'apps/HomeApp/components';
+import { ThemeContext } from 'apps/HomeApp';
 
 const values = ['상상력', '감수성', '호기심'];
 

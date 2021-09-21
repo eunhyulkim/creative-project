@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from 'apps/HomeApp/type';
+import { ThemeContext } from 'apps/HomeApp';
 import { IoIosMoon, IoMdSunny } from 'react-icons/io';
 
 interface ThemeToggleIconProps {

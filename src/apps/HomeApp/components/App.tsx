@@ -3,15 +3,9 @@ import { Link, Route, RouteComponentProps } from 'react-router-dom';
 import 'stylesheets/home-app.scss';
 import _, { random } from 'lodash';
 import classNames from 'classnames';
-import {
-	Universe,
-	ImageCursorHandler,
-	Navigation,
-	IssuePage,
-	InfoPage,
-	ThemeToggleIcon,
-	ThemeContext,
-} from 'apps/HomeApp/type';
+import { Universe, Navigation, IssuePage, InfoPage, ThemeToggleIcon } from 'apps/HomeApp/components';
+import { ImageCursorHandler } from 'apps/HomeApp/scripts';
+import { ThemeContext } from 'apps/HomeApp';
 
 const apps = [
 	{

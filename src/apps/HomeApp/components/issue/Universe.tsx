@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import { ThemeContext, Planet } from 'apps/HomeApp/type';
+import { Planet } from 'apps/HomeApp/components';
+import { ThemeContext } from 'apps/HomeApp';
 
 interface UniverseProps {
 	apps: Array<{ path: string; name: string }>;

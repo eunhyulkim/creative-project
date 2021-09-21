@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Select } from 'apps/common';
 import axios from 'axios';
 import classNames from 'classnames';
-import { ThemeContext } from 'apps/HomeApp/type';
+import { ThemeContext } from 'apps/HomeApp';
 
 const config = {
 	options: ['테크니컬 라이팅', '기타'],
