@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Select, Header } from 'apps/WritingApp/type';
+import { Select, Header } from 'apps/WritingApp';
 import axios from 'axios';
 import classNames from 'classnames';
 import { ThemeContext } from 'apps/HomeApp/type';

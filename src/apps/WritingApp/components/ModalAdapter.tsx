@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConfigModal, ReportModal, ModalHandler } from 'apps/WritingApp/type';
+import { ConfigModal, ReportModal, ModalHandler } from 'apps/WritingApp';
 
 interface ModalAdapterProps {
 	handler: ModalHandler;

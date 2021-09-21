@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
-import { Textarea, SetStateAction, ModalType, useScroll } from 'apps/WritingApp/type';
-import classNames from 'classnames';
+import React, { useEffect, useMemo, useRef } from 'react';
+import { Textarea, SetStateAction, ModalType, useScroll } from 'apps/WritingApp';
+
+const placeholder =
+	'테크니컬 라이터는 글쓰기를 돕는 에디터입니다.\n문예적 글쓰기와 달리, 작성자의 뜻을 분명하고 알기 쉽게 전달하는 것을 목표로 합니다.\n다양한 설정을 통해 더 편리하게 기술 문서를 작성해보세요!';
 
 interface EditorProps {
 	onClick: (modal: ModalType) => void;
@@ -16,14 +18,23 @@ const Editor = React.memo(
 		const classes = useMemo(() => ['editor'], []);
 		const editor: React.RefObject<HTMLTextAreaElement> = useRef(null);
 
-		useAnalyzeEffect(callback, editor);
+		useAnalysisEffect(callback, editor);
 		useCopyEffect(copyable, setCopyable, editor);
 
-		return <Textarea onClick={onClick} onInput={onInput} onChange={scroll} classes={classes} ref={editor} />;
+		return (
+			<Textarea
+				placeholder={placeholder}
+				onClick={onClick}
+				onInput={onInput}
+				onChange={scroll}
+				classes={classes}
+				ref={editor}
+			/>
+		);
 	}
 );
 
-function useAnalyzeEffect(
+function useAnalysisEffect(
 	callback: ((text: string) => void) | undefined,
 	editor: React.RefObject<HTMLTextAreaElement>
 ) {

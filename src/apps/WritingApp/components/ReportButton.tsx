@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { HiOutlineDocumentReport } from 'react-icons/hi';
-import { ModalType, ModalHandler } from 'apps/WritingApp/type';
+import { ModalType, ModalHandler } from 'apps/WritingApp';
 
 interface ReportButtonProps {
 	handler: ModalHandler;

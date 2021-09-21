@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { WritingError, Test, Config } from 'apps/WritingApp/type';
+import { WritingError, Test, Config } from 'apps/WritingApp';
 
 const Error = {
 	name: '개조식',

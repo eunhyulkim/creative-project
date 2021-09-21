@@ -1,18 +1,18 @@
 import React from 'react';
 import classNames from 'classnames';
-import { ModalType, ModalHandler } from 'apps/WritingApp/type';
+import { ModalType, ModalHandler } from 'apps/WritingApp';
+import { ComponentProps } from 'ui-types';
 
-interface ModalProps {
+interface ModalProps extends ComponentProps {
 	handler: ModalHandler;
 	type?: ModalType;
-	children: React.ReactNode;
 	form?: boolean;
-	onblur?: (event: React.FocusEvent<HTMLFormElement>) => void;
-	onchange?: (event: React.ChangeEvent<HTMLFormElement>) => void;
+	onblur?: (event: React.FocusEvent<HTMLFormElement> | React.ChangeEvent<HTMLFormElement>) => void;
+	onchange?: (event: React.ChangeEvent<HTMLFormElement> | React.FocusEvent<HTMLFormElement>) => void;
 }
 
 const Modal = React.memo(
-	({ form = false, onblur, onchange, handler, children, type = '' }: ModalProps): JSX.Element => {
+	({ form = false, onblur, onchange, children, handler, type = '' }: ModalProps): JSX.Element => {
 		if (form) {
 			return (
 				<form
@@ -30,4 +30,5 @@ const Modal = React.memo(
 	(prev, next) => prev.handler.modalState.name === 'REPORT' && next.handler.modalState.name === 'REPORT'
 );
 
+Modal.displayName = 'Modal';
 export default Modal;

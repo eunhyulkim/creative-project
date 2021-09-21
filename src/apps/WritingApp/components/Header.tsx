@@ -1,12 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import { ColorType } from 'ui-types';
+import { ComponentProps } from 'ui-types';
 
-interface HeaderProps {
-	color?: ColorType;
+interface HeaderProps extends ComponentProps {
 	type?: 'default' | 'fixed';
-	classes?: string[];
-	children?: React.ReactNode;
 }
 
 const Header = ({ color = 'primary', type = 'default', children, classes, ...props }: HeaderProps): JSX.Element => {

@@ -91,7 +91,6 @@ const BookTitleStyleShuffle: (book: Book) => { type: string; payload: TitleStyle
 	const [titlePosition, titleLines, __] = _.sample(BookCoverStyles[book.cover]) as string[];
 
 	const position = titlePosition.substring(0, 2);
-	console.log(titlePosition, position, 'TEST');
 	const isFront = titlePosition.substring(9) === 'FRONT';
 	const line = _.sample(titleLines) as string;
 	const size = _.sample(['large', 'middle', 'small']) || 'middle';
@@ -125,7 +124,6 @@ const BookTitleStyleShuffle: (book: Book) => { type: string; payload: TitleStyle
 const BookAuthorStyleShuffle: (book: Book) => { type: string; payload: AuthorStyle } = (book) => {
 	const key = `${book.titleStyle.position}_TITLE`;
 	const authorStyle = BookCoverStyles[book.cover].filter((style) => style[0].includes(key))[0][2] as string;
-	console.log(authorStyle, book.color);
 	const front = authorStyle.substring(7) === 'FRONT';
 	const color = front && book.color !== COLOR_BLACK_CASE ? WHITE : BLACK;
 	return {

@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import { ModalType, ModalStateType, Config } from 'apps/WritingApp/type';
+import { ModalType, ModalStateType, Config } from 'apps/WritingApp';
+import produce from 'immer';
+import { CheckboxType } from '../scripts/Config';
 
 export interface ModalState {
 	name: ModalType;
@@ -13,6 +15,7 @@ export interface ModalHandler {
 	closeModal: () => void;
 	toggleModal: (name: ModalType) => void;
 	setModal: React.Dispatch<React.SetStateAction<ModalState>>;
+	modify: (name: string, value: ModalStateType, isCheckbox?: boolean) => void;
 }
 
 export default function useModal(): ModalHandler {
@@ -28,6 +31,19 @@ export default function useModal(): ModalHandler {
 			openModal(name);
 		}
 	};
+	const modify = (name: string, mergeValue: ModalStateType, isCheckbox = false) => {
+		setModal((prevModalState) =>
+			produce(prevModalState, (state) => {
+				if (isCheckbox) {
+					const form = (state.state[name] as CheckboxType) || {};
+					form.options = { ...form.options, ...(mergeValue as { [key: string]: boolean }) };
+					state.state[name] = form as ModalStateType;
+				} else {
+					state.state[name] = { ...(state.state[name] as ModalStateType), ...mergeValue };
+				}
+			})
+		);
+	};
 
-	return { modalState, toggleModal, openModal, closeModal, setModal };
+	return { modalState, toggleModal, openModal, closeModal, setModal, modify };
 }

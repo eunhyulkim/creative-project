@@ -1,12 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import { ComponentProps } from 'ui-types';
 
-interface GroupProps {
-	classes?: string[] | string;
-	children?: React.ReactNode;
-}
-
-const Group = ({ children, classes, ...props }: GroupProps): JSX.Element => {
+const Group = ({ children, classes, ...props }: ComponentProps): JSX.Element => {
 	return (
 		<div className={classNames(classes)} {...props}>
 			{children}

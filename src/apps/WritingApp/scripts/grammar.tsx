@@ -1,4 +1,4 @@
-import { WritingError, Result, Config, CONFIG_INITIAL_STATE } from 'apps/WritingApp/type';
+import { WritingError, Result, Config, CONFIG_INITIAL_STATE } from 'apps/WritingApp';
 import cases from './test/cases';
 
 function split(text: string): string[][] {

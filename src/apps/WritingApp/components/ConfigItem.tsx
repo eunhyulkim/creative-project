@@ -1,7 +1,6 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Config, ConfigNames, RangeType, SelectType, CheckboxType, InputType } from 'apps/WritingApp/scripts/Config';
-import { Toggle, Description, Range, Select, Checkbox, ConfigContext } from 'apps/WritingApp/type';
+import { Toggle, Description, Range, Select, Checkbox, ConfigContext } from 'apps/WritingApp';
 import { Heading, Input } from 'apps/common';
 
 interface ConfigItemProps {
@@ -29,7 +28,6 @@ function getChildrenWithConfig(config: Config, name: ConfigNames): React.ReactNo
 		default:
 			return null;
 	}
-	return null;
 }
 
 const ConfigItem = ({ name }: ConfigItemProps): JSX.Element => {
@@ -37,12 +35,12 @@ const ConfigItem = ({ name }: ConfigItemProps): JSX.Element => {
 	const { title, description, checked } = config[name];
 	const children = getChildrenWithConfig(config, name);
 	return (
-		<div className={classNames('config-item')}>
-			<div className={classNames('config-item--header')}>
+		<div className="config-item">
+			<div className="config-item--header">
 				<Heading size="third" color="black">
 					{title}
 				</Heading>
-				<Toggle checked={checked} name={name} classes={['config-item--toggle']} />
+				<Toggle checked={checked} name={name} classes="config-item--toggle" />
 			</div>
 			{checked && (
 				<div className="config-item--body">

@@ -1,4 +1,4 @@
-import { Test } from 'apps/WritingApp/type';
+import { Test } from 'apps/WritingApp';
 import ForeignWordTest from './ForeignWordTest';
 import SentenceLengthTest from './SentenceLengthTest';
 import DoubleNegativeTest from './DoubleNegativeTest';

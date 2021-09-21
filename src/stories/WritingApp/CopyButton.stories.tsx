@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import CopyButton from 'apps/WritingApp/components/CopyButton';
-import { useModal } from 'apps/WritingApp/type';
+import { useModal } from 'apps/WritingApp';
 
 const CopyButtonWithHook = (): JSX.Element => {
 	const handler = useModal();

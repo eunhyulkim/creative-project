@@ -1,4 +1,4 @@
-import { WritingError, Test, Config } from 'apps/WritingApp/type';
+import { WritingError, Test, Config } from 'apps/WritingApp';
 
 const Error = {
 	name: '긴 문장',

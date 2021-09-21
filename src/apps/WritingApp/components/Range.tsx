@@ -18,6 +18,7 @@ const Range = React.memo(({ minVal = 0, value, name, maxVal, classes }: RangePro
 					className={classNames('range', classes)}
 					name={name}
 					type="range"
+					data-type="range"
 					min={minVal}
 					max={maxVal}
 					value={value}

@@ -14,7 +14,7 @@ import {
 	useError,
 	useModal,
 	useConfig,
-} from 'apps/WritingApp/type';
+} from 'apps/WritingApp';
 import { Group } from 'apps/common';
 import _ from 'lodash';
 import 'stylesheets/writing-app.scss';
@@ -25,7 +25,7 @@ function WritingApp(): JSX.Element {
 	const [count, setCount] = useCounter();
 	const [errors, analysis] = useError();
 	const [copyable, setCopyable] = useState(false);
-	const [config, setConfig] = useConfig(modalHandler);
+	const [config, _setConfig] = useConfig(modalHandler);
 
 	const information = _.last(errors)?.toMessage() || '';
 
@@ -33,12 +33,11 @@ function WritingApp(): JSX.Element {
 		<>
 			<Helmet>
 				<title>테크니컬 라이터: 효과적 글쓰기</title>
-				<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
 			</Helmet>
 			<div className="writing-app">
 				<Header type="fixed">
 					<strong>테크니컬 라이터</strong>
-					<Group classes={['header--section']}>
+					<Group classes="header--section">
 						<Counter count={count} />
 						<ReportButton handler={modalHandler} />
 						<ConfigButton handler={modalHandler} />

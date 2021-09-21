@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import { AiOutlineCopy } from 'react-icons/ai';
 
 interface CopyButtonProps {

@@ -12,7 +12,7 @@ interface SelectProps {
 
 const Select = ({ options, label, value, name, classes }: SelectProps): JSX.Element => {
 	const content = (
-		<select name={name} className={classNames(classes, 'select')} defaultValue={value}>
+		<select data-type="select" name={name} className={classNames(classes, 'select')} defaultValue={value}>
 			{options.map((opt) => (
 				<option value={opt} key={opt}>
 					{opt}

@@ -2,6 +2,7 @@ export type ColorType =
 	| 'primary'
 	| 'secondary'
 	| 'black'
+	| 'gray'
 	| 'white'
 	| 'real-white'
 	| 'red'
@@ -22,3 +23,9 @@ export type ColorType =
 	| 'neon-pink'
 	| 'neon-teal'
 	| 'neon-brown';
+
+export interface ComponentProps {
+	color?: ColorType;
+	classes?: string[] | string;
+	children?: React.ReactNode;
+}

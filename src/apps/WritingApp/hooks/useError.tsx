@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import getResult from 'apps/WritingApp/scripts/grammar';
-import { WritingError } from 'apps/WritingApp/type';
+import { WritingError } from 'apps/WritingApp';
 import _ from 'lodash';
 
 export default function useError(): [WritingError[], (text: string) => void] {

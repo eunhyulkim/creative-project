@@ -34,6 +34,7 @@ const Input = React.memo(
 
 		return (
 			<input
+				data-type="input"
 				maxLength={maxLength}
 				onInput={onInput}
 				ref={ref}

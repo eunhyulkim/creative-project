@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ConfigModal, useModal } from 'apps/WritingApp/type';
+import { ConfigModal, useModal } from 'apps/WritingApp';
 
 const ConfigModalWithHook = (): JSX.Element => {
 	const handler = useModal();

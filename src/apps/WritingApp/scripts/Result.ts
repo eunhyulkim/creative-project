@@ -1,4 +1,4 @@
-import { WritingError } from 'apps/WritingApp/type';
+import { WritingError } from 'apps/WritingApp';
 
 interface ResultParameter {
 	index?: number;

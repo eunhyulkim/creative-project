@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import ConfigButton from 'apps/WritingApp/components/ConfigButton';
-import { useModal } from 'apps/WritingApp/type';
+import { useModal } from 'apps/WritingApp';
 
 const ConfigButtonWithHook = (): JSX.Element => {
 	const handler = useModal();

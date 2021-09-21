@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SetStateAction, Config, CONFIG_INITIAL_STATE, ModalHandler } from 'apps/WritingApp/type';
+import { SetStateAction, Config, CONFIG_INITIAL_STATE, ModalHandler } from 'apps/WritingApp';
 
 import produce from 'immer';
 import _ from 'lodash';
