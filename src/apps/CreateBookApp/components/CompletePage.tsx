@@ -42,21 +42,21 @@ function CompletePage(): JSX.Element {
 	}
 
 	const error = !book.author || !book.title || book.chapters.some((chapter) => !chapter.title || !chapter.body);
-	const obj = error ? config.error : config.success;
+	const page = error ? config.error : config.success;
 
 	return (
 		<div className={classNames('complete-page', { 'has-container': !error })}>
-			<Image classes="main-logo" src={obj.src} alt={obj.alt} />
+			<Image classes="main-logo" src={page.src} alt={page.alt} />
 			<Heading color="black" size="second">
-				{obj.heading}
+				{page.heading}
 			</Heading>
-			<Paragraph center content={obj.paragraph} />
+			<Paragraph center content={page.paragraph} />
 			{!error && (
 				<div className="status" data-complete="false">
 					<div className="status-value" data-width="0%" />
 				</div>
 			)}
-			<Button size="large" round="circle" color="black" label={obj.button} onClick={() => setNext(true)} />
+			<Button size="large" round="circle" color="black" label={page.button} onClick={() => setNext(true)} />
 			<HtmlTempContainer classes="A5" />
 		</div>
 	);
