@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Route, RouteComponentProps } from 'react-router-dom';
 import 'stylesheets/home-app.scss';
-import _, { random } from 'lodash';
 import classNames from 'classnames';
 import { Universe, Navigation, IssuePage, InfoPage, ThemeToggleIcon } from 'apps/HomeApp/components';
 import { ImageCursorHandler } from 'apps/HomeApp/scripts';
@@ -22,10 +21,11 @@ function App({ match }: RouteComponentProps): JSX.Element {
 	const [theme, setTheme] = useState('default');
 	const onMouseMove = ImageCursorHandler(60);
 	const onToggle = () => setTheme(theme === 'default' ? 'dark' : 'default');
+	const dark = theme === 'dark';
 
 	return (
 		<ThemeContext.Provider value={theme}>
-			<div onMouseMove={onMouseMove} className={classNames(['home-app', { dark: theme === 'dark' }])}>
+			<div onMouseMove={onMouseMove} className={classNames(['home-app', { dark }])}>
 				<Navigation title="크리에이티브-프로젝트">
 					<Link to="/info">info</Link>
 					<Link to="/issue">issue</Link>
@@ -33,7 +33,7 @@ function App({ match }: RouteComponentProps): JSX.Element {
 				</Navigation>
 				<Route exact path={match.path}>
 					<Universe apps={apps} />
-					<div className={classNames(['image-cursor', { dark: theme === 'dark' }])}>visit</div>
+					<div className={classNames(['image-cursor', { dark }])}>visit</div>
 				</Route>
 				<Route path={`${match.path}info`}>
 					<InfoPage />

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ImageCursorHandler(topLimit: number): (event: React.MouseEvent<HTMLElement>) => void {
+export default function ImageCursorHandler(topLimit = 0): (event: React.MouseEvent<HTMLElement>) => void {
 	const mobileWidth = 480;
 	const handler = (event: React.MouseEvent<HTMLElement>) => {
 		const imageCursor: HTMLDivElement | null = document.querySelector('.image-cursor');
