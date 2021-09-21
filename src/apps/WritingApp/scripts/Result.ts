@@ -1,4 +1,4 @@
-import { WritingError } from 'apps/WritingApp';
+import { WritingError } from 'apps/WritingApp/scripts';
 
 interface ResultParameter {
 	index?: number;
@@ -16,7 +16,7 @@ export default class Result {
 		return this._errors.length;
 	}
 
-	getError(options: ResultParameter = {}): WritingError[] {
+	getErrors(options: ResultParameter = {}): WritingError[] {
 		const { index, count } = options;
 
 		if (index !== undefined && index !== -1) {

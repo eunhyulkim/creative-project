@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import { AiOutlineSetting } from 'react-icons/ai';
-import { ModalType, ModalHandler } from 'apps/WritingApp';
+import { ModalType } from 'apps/WritingApp';
+import { ModalHandler } from 'apps/WritingApp/hooks';
 
 interface ConfigButtonProps {
 	handler: ModalHandler;

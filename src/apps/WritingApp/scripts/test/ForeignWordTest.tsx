@@ -1,5 +1,5 @@
-import _ from 'lodash';
-import { WritingError, Test, Config } from 'apps/WritingApp';
+import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
+import Test from '../Test';
 
 const Error = {
 	name: '외래어',
@@ -29,43 +29,18 @@ const foreignWords = [
 	'썸네일',
 ];
 
-function sentenceTest(paragraph: string[], pidx: number, sentence: string, sidx: number, config: Config): boolean {
-	const words = sentence.split(/[\s,.?!]+/);
-	return words.every((word) => foreignWords.every((foreignWord) => !word.includes(foreignWord)));
+class ForeignWordTest extends Test {
+	constructor() {
+		super(Error.name, Error.description, Error.message);
+	}
+
+	testParagraph({ paragraph }: testParagraphProps): boolean {
+		return true;
+	}
+
+	testSentence({ sentence, config }: testSentenceProps): boolean {
+		const words = sentence.split(/[\s,.?!]+/);
+		return words.every((word) => foreignWords.every((foreignWord) => !word.includes(foreignWord)));
+	}
 }
-
-function paragraphTest(collection: Array<WritingError>, paragraph: string[], pidx: number, config: Config): boolean {
-	paragraph.forEach((sentence, sidx) => {
-		if (!sentenceTest(paragraph, pidx, sentence, sidx, config)) {
-			const error = {
-				location: [pidx + 1, sidx + 1],
-				expression: sentence,
-				...Error,
-			};
-			collection.push(new WritingError(error));
-		}
-	});
-	return true;
-}
-
-const ForeignWordTest: Test = (paragraphs, config) => {
-	if (!config.FOREIGN_WORD.checked) return null;
-
-	const collection: Array<WritingError> = [];
-	paragraphs.forEach((paragraph, pidx) => {
-		if (!paragraphTest(collection, paragraph, pidx, config)) {
-			const error = {
-				location: [pidx + 1, 0],
-				expression: paragraph[0],
-				...Error,
-			};
-			collection.push(new WritingError(error));
-		}
-	});
-
-	if (collection.length === 0) return null;
-	if (collection.length === 1) return collection[0];
-	return collection;
-};
-
 export default ForeignWordTest;

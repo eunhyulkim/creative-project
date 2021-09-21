@@ -1,5 +1,5 @@
-import { WritingError, Result, Config, CONFIG_INITIAL_STATE } from 'apps/WritingApp';
-import cases from './test/cases';
+import { Result, Config, CONFIG_INITIAL_STATE } from '.';
+import tests from './test/tests';
 
 function split(text: string): string[][] {
 	const getChunks = () => {
@@ -40,14 +40,14 @@ function split(text: string): string[][] {
 
 function testAll(paragraphs: string[][], config: Config): Result {
 	const result = new Result();
-	cases.forEach((testCase) => {
-		result.addError(testCase(paragraphs, config));
+	tests.forEach((test) => {
+		result.addError(test.run(paragraphs, config));
 	});
 	result.sort();
 	return result;
 }
 
-export default function getResult(text: string): Result {
+export default function process(text: string): Result {
 	const localSetting = localStorage.getItem('CONFIG');
 	const config = localSetting ? JSON.parse(localSetting) : CONFIG_INITIAL_STATE;
 	const paragraphs: string[][] = split(text);

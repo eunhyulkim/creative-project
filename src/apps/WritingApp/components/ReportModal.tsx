@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
-import { WritingError, ErrorsContext, Modal, ModalHandler } from 'apps/WritingApp';
+import { ErrorsContext } from 'apps/WritingApp';
 import { Heading } from 'apps/common';
 import classNames from 'classnames';
 import _ from 'lodash';
+import { Modal } from '.';
+import { ModalHandler } from '../hooks';
+import { WritingError } from '../scripts';
 
 interface ReportModalProps {
 	handler: ModalHandler;

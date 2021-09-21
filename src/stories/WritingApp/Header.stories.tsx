@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import classNames from 'classnames';
 import { ColorType } from 'ui-types';
-import { useModal, useCounter, Counter, ReportButton, CopyButton, ConfigButton } from 'apps/WritingApp';
+import { useModal, useCounter } from 'apps/WritingApp/hooks';
+import { Counter, ReportButton, CopyButton, ConfigButton } from 'apps/WritingApp/components';
+
 import { Group } from 'apps/common';
 
 interface HeaderProps {

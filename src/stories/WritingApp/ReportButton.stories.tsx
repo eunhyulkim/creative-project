@@ -1,6 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ReportButton, useModal } from 'apps/WritingApp';
+import { ReportButton } from 'apps/WritingApp/components';
+import { useModal } from 'apps/WritingApp/hooks';
 
 const ReportButtonWithHook = (): JSX.Element => {
 	const handler = useModal();

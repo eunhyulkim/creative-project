@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import { ModalType, ModalHandler } from 'apps/WritingApp';
+import { ModalType } from 'apps/WritingApp';
 import { ComponentProps } from 'ui-types';
+import { ModalHandler } from 'apps/WritingApp/hooks';
 
 interface ModalProps extends ComponentProps {
 	handler: ModalHandler;

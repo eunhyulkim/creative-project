@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
-import { ModalType, ModalStateType, Config } from 'apps/WritingApp';
+import { ModalType, ModalStateType } from 'apps/WritingApp';
+import { Config, CheckboxType } from 'apps/WritingApp/scripts';
 import produce from 'immer';
-import { CheckboxType } from '../scripts/Config';
 
 export interface ModalState {
 	name: ModalType;

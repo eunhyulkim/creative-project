@@ -1,4 +1,5 @@
-import { WritingError, Test, Config } from 'apps/WritingApp';
+import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
+import Test from '../Test';
 
 const Error = {
 	name: '이중부정',
@@ -16,88 +17,64 @@ const Error = {
  ** 6) 없(포함적 단어 사용)
  */
 
-function sentenceTest(paragraph: string[], pidx: number, sentence: string, sidx: number, config: Config): boolean {
-	const includeWords = [
-		'아니면',
-		'아니라서',
-		'아니니까',
-		'아니지',
-		'아니여',
-		'아니어',
-		'아니므로',
-		'아니기',
-		'아니죠',
-		'아니진',
-		'아니잖',
-		'아니하',
-		'아니했',
-		'아니었',
-		'아니에',
-		'아닙니',
-		'아니다',
-		'아니요',
-		'않다',
-		'않아',
-		'않았',
-		'않을',
-		'않으',
-		'않잖',
-		'않지',
-		'않죠',
-		'않습',
-		'않기',
-		'않진',
-		'못하',
-		'못했',
-		'못한',
-		'못할',
-		'못해',
-		'못합',
-		'없',
-	];
-	const matchWords = ['안', '말아요', '마세요', '말라', '마라', '마요'];
-	const filterCallback = (word: string) => {
-		return (
-			matchWords.some((matchWord) => matchWord === word) ||
-			includeWords.some((includeWord) => word.includes(includeWord))
-		);
-	};
-	const words = sentence.split(/[\s,.?!]+/);
-	return words.filter(filterCallback).length <= 1;
+const includeWords = [
+	'아니면',
+	'아니라서',
+	'아니니까',
+	'아니지',
+	'아니여',
+	'아니어',
+	'아니므로',
+	'아니기',
+	'아니죠',
+	'아니진',
+	'아니잖',
+	'아니하',
+	'아니했',
+	'아니었',
+	'아니에',
+	'아닙니',
+	'아니다',
+	'아니요',
+	'않다',
+	'않아',
+	'않았',
+	'않을',
+	'않으',
+	'않잖',
+	'않지',
+	'않죠',
+	'않습',
+	'않기',
+	'않진',
+	'못하',
+	'못했',
+	'못한',
+	'못할',
+	'못해',
+	'못합',
+	'없',
+];
+const matchWords = ['안', '말아요', '마세요', '말라', '마라', '마요'];
+
+class DoubleNegativeTest extends Test {
+	constructor() {
+		super(Error.name, Error.description, Error.message);
+	}
+
+	testParagraph({ paragraph }: testParagraphProps): boolean {
+		return true;
+	}
+
+	testSentence({ sentence, config }: testSentenceProps): boolean {
+		const filterCallback = (word: string) => {
+			return (
+				matchWords.some((matchWord) => matchWord === word) ||
+				includeWords.some((includeWord) => word.includes(includeWord))
+			);
+		};
+		const words = sentence.split(/[\s,.?!]+/);
+		return words.filter(filterCallback).length <= 1;
+	}
 }
-
-function paragraphTest(collection: Array<WritingError>, paragraph: string[], pidx: number, config: Config): boolean {
-	paragraph.forEach((sentence, sidx) => {
-		if (!sentenceTest(paragraph, pidx, sentence, sidx, config)) {
-			const error = {
-				location: [pidx + 1, sidx + 1],
-				expression: sentence,
-				...Error,
-			};
-			collection.push(new WritingError(error));
-		}
-	});
-	return true;
-}
-
-const DoubleNegativeTest: Test = (paragraphs, config) => {
-	if (!config.DOUBLE_NEGATIVE.checked) return null;
-
-	const collection: Array<WritingError> = [];
-	paragraphs.forEach((paragraph, pidx) => {
-		if (!paragraphTest(collection, paragraph, pidx, config)) {
-			const error = {
-				location: [pidx + 1, 0],
-				expression: paragraph[0],
-				...Error,
-			};
-			collection.push(new WritingError(error));
-		}
-	});
-
-	if (collection.length === 0) return null;
-	if (collection.length === 1) return collection[0];
-	return collection;
-};
-
 export default DoubleNegativeTest;

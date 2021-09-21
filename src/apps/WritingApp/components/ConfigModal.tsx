@@ -1,6 +1,9 @@
 import React from 'react';
-import { ModalHandler, isConfigName, ConfigContext, Modal, Description, ConfigItem } from 'apps/WritingApp';
+import { ConfigContext } from 'apps/WritingApp';
 import { Heading } from 'apps/common';
+import { isConfigName } from '../scripts';
+import { ModalHandler } from '../hooks';
+import { Modal, Description, ConfigItem } from '.';
 
 interface ConfigModalProps {
 	handler: ModalHandler;

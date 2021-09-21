@@ -1,10 +1,15 @@
-import { Test } from 'apps/WritingApp';
 import ForeignWordTest from './ForeignWordTest';
 import SentenceLengthTest from './SentenceLengthTest';
 import DoubleNegativeTest from './DoubleNegativeTest';
 import RevisionTest from './RevisionTest';
 import BannedTest from './BannedTest';
 
-const cases: Test[] = [ForeignWordTest, SentenceLengthTest, DoubleNegativeTest, BannedTest, RevisionTest];
+const tests = [
+	new ForeignWordTest(),
+	new SentenceLengthTest(),
+	new DoubleNegativeTest(),
+	new BannedTest(),
+	new RevisionTest(),
+];
 
-export default cases;
+export default tests;

@@ -6,3 +6,5 @@ export { default as Input } from './components/Input';
 export { default as RandomIcon } from './components/RandomIcon';
 export { default as Group } from './components/Group';
 export { default as Text } from './components/Text';
+export { default as Header } from './components/Header';
+export { default as Select } from './components/Select';

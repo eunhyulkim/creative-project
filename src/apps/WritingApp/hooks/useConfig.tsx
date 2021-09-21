@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { SetStateAction, Config, CONFIG_INITIAL_STATE, ModalHandler } from 'apps/WritingApp';
-
+import { SetStateAction } from 'apps/WritingApp';
 import produce from 'immer';
 import _ from 'lodash';
+import { ModalHandler } from '.';
+import { Config, CONFIG_INITIAL_STATE } from '../scripts';
 
 export default function useConfig(modalHandler: ModalHandler): [Config, SetStateAction<Config>] {
 	const localConfig: Config | {} = JSON.parse(localStorage.getItem('CONFIG') || '{}');

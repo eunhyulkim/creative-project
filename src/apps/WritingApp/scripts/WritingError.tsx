@@ -7,11 +7,11 @@ interface WritingErrorParams {
 }
 
 export default class WritingError {
-	name: string;
+	name?: string;
 
-	description: string;
+	description?: string;
 
-	message: string;
+	message?: string;
 
 	location: number[];
 

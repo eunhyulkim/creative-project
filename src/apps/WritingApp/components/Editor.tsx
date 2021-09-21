@@ -1,5 +1,7 @@
 import React, { useEffect, useMemo, useRef } from 'react';
-import { Textarea, SetStateAction, ModalType, useScroll } from 'apps/WritingApp';
+import { SetStateAction, ModalType } from 'apps/WritingApp';
+import { Textarea } from 'apps/WritingApp/components';
+import { useScroll } from 'apps/WritingApp/hooks';
 
 const placeholder =
 	'테크니컬 라이터는 글쓰기를 돕는 에디터입니다.\n문예적 글쓰기와 달리, 작성자의 뜻을 분명하고 알기 쉽게 전달하는 것을 목표로 합니다.\n다양한 설정을 통해 더 편리하게 기술 문서를 작성해보세요!';

@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
+import { Group, Header } from 'apps/common';
+import _ from 'lodash';
+import 'stylesheets/writing-app.scss';
+import Helmet from 'react-helmet';
 import {
 	CopyButton,
 	ConfigButton,
 	Counter,
 	Editor,
-	Header,
 	Information,
 	ModalAdapter,
 	ReportButton,
-	ConfigContext,
-	ErrorsContext,
-	useCounter,
-	useError,
-	useModal,
-	useConfig,
-} from 'apps/WritingApp';
-import { Group } from 'apps/common';
-import _ from 'lodash';
-import 'stylesheets/writing-app.scss';
-import Helmet from 'react-helmet';
+} from 'apps/WritingApp/components';
+
+import { ConfigContext, ErrorsContext } from 'apps/WritingApp';
+import { useCounter, useModal, useConfig, useError } from '../hooks';
 
 function WritingApp(): JSX.Element {
 	const modalHandler = useModal();

@@ -1,4 +1,5 @@
-import { WritingError, Test, Config } from 'apps/WritingApp';
+import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
+import Test from '../Test';
 
 const Error = {
 	name: '긴 문장',
@@ -6,42 +7,17 @@ const Error = {
 	message: '문장의 길이가 최대 글자 수를 초과합니다.',
 };
 
-function sentenceTest(paragraph: string[], pidx: number, sentence: string, sidx: number, config: Config): boolean {
-	return sentence.length <= config.SENTENCE_LENGTH.value;
+class SentenceLengthTest extends Test {
+	constructor() {
+		super(Error.name, Error.description, Error.message);
+	}
+
+	testParagraph({ paragraph }: testParagraphProps): boolean {
+		return true;
+	}
+
+	testSentence({ sentence, config }: testSentenceProps): boolean {
+		return sentence.length <= config.SENTENCE_LENGTH.value;
+	}
 }
-
-function paragraphTest(collection: Array<WritingError>, paragraph: string[], pidx: number, config: Config): boolean {
-	paragraph.forEach((sentence, sidx) => {
-		if (!sentenceTest(paragraph, pidx, sentence, sidx, config)) {
-			const error = {
-				location: [pidx + 1, sidx + 1],
-				expression: sentence,
-				...Error,
-			};
-			collection.push(new WritingError(error));
-		}
-	});
-	return true;
-}
-
-const LongSentenceTest: Test = (paragraphs, config) => {
-	if (!config.SENTENCE_LENGTH.checked) return null;
-
-	const collection: Array<WritingError> = [];
-	paragraphs.forEach((paragraph, pidx) => {
-		if (!paragraphTest(collection, paragraph, pidx, config)) {
-			const error = {
-				location: [pidx + 1, 0],
-				expression: paragraph[0],
-				...Error,
-			};
-			collection.push(new WritingError(error));
-		}
-	});
-
-	if (collection.length === 0) return null;
-	if (collection.length === 1) return collection[0];
-	return collection;
-};
-
-export default LongSentenceTest;
+export default SentenceLengthTest;
