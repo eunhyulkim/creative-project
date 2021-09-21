@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { TitleStyle, colors } from 'store/book';
+import { TitleStyle } from 'store/book';
 
 interface CoverTitleProps {
 	cover: number;

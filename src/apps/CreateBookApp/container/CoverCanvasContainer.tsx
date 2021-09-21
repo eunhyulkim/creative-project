@@ -1,6 +1,6 @@
 import React from 'react';
-import { CoverCanvas } from 'apps/CreateBookApp';
-import { shallowEqual, useSelector } from 'react-redux';
+import { CoverCanvas } from 'apps/CreateBookApp/components';
+import { useSelector } from 'react-redux';
 import { Book } from 'store/book';
 
 function CoverCanvasContainer(): JSX.Element {

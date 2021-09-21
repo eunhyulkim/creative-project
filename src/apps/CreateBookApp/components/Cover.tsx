@@ -10,7 +10,7 @@ interface CoverProps {
 	color?: string;
 }
 
-function Cover({ nth, color }: CoverProps): JSX.Element {
+function convert(nth: number, color?: string): JSX.Element {
 	switch (nth) {
 		case 0:
 			return <Svg.CoverZero fill={color} />;
@@ -31,6 +31,10 @@ function Cover({ nth, color }: CoverProps): JSX.Element {
 		default:
 			return <Svg.CoverZero fill={color} />;
 	}
+}
+
+function Cover({ nth, color }: CoverProps): JSX.Element {
+	return <div className="cover">{convert(nth, color)}</div>;
 }
 
 export default Cover;

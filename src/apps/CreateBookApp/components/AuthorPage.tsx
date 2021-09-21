@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
 import { Heading, Input, Button } from 'apps/common';
 import { CoverCanvasContainer } from 'apps/CreateBookApp';
 import { useDispatch } from 'react-redux';

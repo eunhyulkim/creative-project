@@ -1,7 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
-import { Cover, CoverTitle, CoverAuthor } from 'apps/CreateBookApp';
-import { AuthorStyle, TitleStyle } from 'store/book';
 import { Text } from 'apps/common';
 
 interface BookContentProps {

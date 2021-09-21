@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Image, Heading, Paragraph, Button } from 'apps/common';
 import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Dispatch } from 'redux';
 import { BookActions } from 'store/book';
 
 function HomePage(): JSX.Element {

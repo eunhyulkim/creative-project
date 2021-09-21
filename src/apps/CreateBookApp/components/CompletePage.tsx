@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { Image, Heading, Paragraph, Button } from 'apps/common';
-import { HtmlTempContainer } from 'apps/CreateBookApp';
+import { HtmlTempContainer } from 'apps/CreateBookApp/components';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { BookActions, Book } from 'store/book';

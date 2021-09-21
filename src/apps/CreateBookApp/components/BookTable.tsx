@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Cover, CoverTitle, CoverAuthor } from 'apps/CreateBookApp';
+import { Cover, CoverTitle, CoverAuthor } from 'apps/CreateBookApp/components';
 import { AuthorStyle, TitleStyle, Chapter } from 'store/book';
 import { Text } from 'apps/common';
 

@@ -1,4 +1,4 @@
-import { Cover, CoverCanvas, BookTable, BookContent } from 'apps/CreateBookApp';
+import { Cover, CoverCanvas, BookTable, BookContent } from 'apps/CreateBookApp/components';
 import _ from 'lodash';
 import { Dispatch } from 'redux';
 import html2canvas from 'html2canvas';

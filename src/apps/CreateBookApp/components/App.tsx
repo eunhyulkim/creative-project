@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { HomePage, TitlePage, AuthorPage, ContentPage, TermsPage, CompletePage } from 'apps/CreateBookApp';
+import { HomePage, TitlePage, AuthorPage, ContentPage, TermsPage, CompletePage } from '.';
 import 'stylesheets/create-book-app.scss';
 
 const App = (): JSX.Element => {
