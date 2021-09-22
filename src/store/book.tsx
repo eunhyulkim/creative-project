@@ -1,11 +1,11 @@
-import { Cover, CoverCanvas, BookTable, BookContent } from 'apps/CreateBookApp/components';
 import _ from 'lodash';
 import { Dispatch } from 'redux';
-import html2canvas from 'html2canvas';
-import ReactDOM from 'react-dom';
-import JsPDF from 'jspdf';
 import { BookCoverStyles } from 'config';
-import { isJsxSpreadAttribute } from 'typescript';
+import { createBookPDF } from 'apps/CreateBookApp/scripts';
+
+/*
+ ** Action Type에 사용되는 type명 상수 정의
+ */
 
 const SET_TITLE = 'book/SET_TITLE';
 const SET_TITLE_STYLE = 'book/SET_TITLE_STYLE';
@@ -34,6 +34,10 @@ export interface Chapter {
 	body: string;
 }
 
+/*
+ ** Action 객체들 합집합 타입화
+ */
+
 type ActionType =
 	| ReturnType<typeof BookTitleSet>
 	| ReturnType<typeof BookCoverSet>
@@ -45,6 +49,10 @@ export type ThunkCreator = (
 	title?: string,
 	body?: string
 ) => (dispatch: Dispatch, getState?: () => { book: Book }) => void;
+
+/*
+ ** Action Creator
+ */
 
 const BookTitleSet = (bookTitle: string): { type: string; payload: string } => ({
 	type: SET_TITLE,
@@ -87,6 +95,10 @@ const COLOR_BLACK_CASE = '#F0C05A';
 const WHITE = '#FFFFFF';
 const BLACK = '#000000';
 
+/*
+ ** titlePosition: e.g RC_TITLE_FRONT(우측 중앙, 타이틀, 전경색 앞)
+ ** titleLines: e.g ['single', 'double'](1줄, 2줄 분리 옵션 가능)
+ */
 const BookTitleStyleShuffle: (book: Book) => { type: string; payload: TitleStyle } = (book) => {
 	const [titlePosition, titleLines, __] = _.sample(BookCoverStyles[book.cover]) as string[];
 
@@ -154,137 +166,7 @@ const BookReset = (): { type: string; payload: string } => ({
 const BookCreate: ThunkCreator = () => async (__, getState) => {
 	if (!getState) return;
 	const { book } = getState();
-	const { title, titleStyle, author, authorStyle, cover, color, chapters } = book;
-	const container = document.getElementById('html-temp-container') as HTMLDivElement;
-	const status = document.querySelector('.status-value') as HTMLDivElement;
-	const pages = [] as number[];
-	const doc = new JsPDF('p', 'mm', 'a5');
-
-	renderCover();
-
-	function renderCover() {
-		ReactDOM.render(
-			<CoverCanvas
-				title={title}
-				titleStyle={titleStyle}
-				authorStyle={authorStyle}
-				author={author}
-				cover={cover}
-				color={color}
-			/>,
-			container,
-			async () => {
-				setProgress(10);
-				await addPage(false);
-				setProgress(15);
-				await renderChapter();
-			}
-		);
-	}
-
-	async function renderChapter(chapterNumber = 1, prevRenderedPage = 0) {
-		const chapter = chapters[chapterNumber - 1];
-		ReactDOM.render(
-			<BookContent page={prevRenderedPage + 1} title={chapter.title} body={chapter.body} />,
-			container,
-			async () => {
-				const header: HTMLDivElement = document.querySelector('.content--title') as HTMLDivElement;
-				const body = document.querySelector('.content--body') as HTMLDivElement;
-				const element: HTMLDivElement = body.querySelector('.wrapper') as HTMLDivElement;
-				const footer: HTMLDivElement = document.querySelector('.content--number') as HTMLDivElement;
-				if (!header || !body || !element || !footer) return;
-
-				const prepareRenderChapter = () => {
-					header.classList.remove('none');
-					body.classList.remove('extend');
-					element.style.top = '0px';
-					pages.push(prevRenderedPage + 1);
-					return body.scrollHeight;
-				};
-
-				const restHeight = prepareRenderChapter();
-
-				const prevStatus = parseInt(status.getAttribute('data-width') || '', 10);
-				const renderedPage = await renderPage(restHeight, prevRenderedPage + 1, true);
-				setProgress(Math.floor(prevStatus + 70 / chapters.length));
-				if (chapterNumber < chapters.length) {
-					renderChapter(chapterNumber + 1, renderedPage);
-				} else {
-					renderTable();
-				}
-
-				async function renderPage(rest: number, page: number, isFirstPage = false): Promise<number> {
-					if (rest <= 0) return page - 1;
-
-					prepareRenderPage();
-					await addPage();
-					afterRenderPage();
-
-					const lastRenderedPage = await renderPage(rest - (isFirstPage ? 540 : 630), page + 1);
-					return lastRenderedPage;
-
-					function prepareRenderPage() {
-						if (page % 2 === 0) {
-							header.classList.add('right');
-							footer.classList.add('right');
-						} else {
-							header.classList.remove('right');
-							footer.classList.remove('right');
-						}
-					}
-
-					function afterRenderPage() {
-						element.style.top = `${String((parseInt(element.style.top, 10) || 0) - (header ? 540 : 630))}px`;
-						const space = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
-						footer.innerHTML =
-							(page + 1) % 2 === 0
-								? `${chapter.title}${space}${String(page + 1)}`
-								: `${String(page + 1)}${space}${chapter.title}`;
-
-						if (isFirstPage) {
-							header.classList.add('none');
-							body.classList.add('extend');
-						}
-						const presentStatus = parseInt(status.getAttribute('data-width') || '', 10);
-						const nextStatus = Math.floor(prevStatus + 70 / chapters.length);
-						setProgress(Math.floor(prevStatus + (nextStatus - presentStatus) / 630));
-					}
-				}
-			}
-		);
-	}
-
-	async function renderTable() {
-		ReactDOM.render(<BookTable chapters={chapters} pages={pages} />, container, async () => {
-			setProgress(95);
-			await addPage(false, true);
-			setProgress(100);
-			document.querySelector('.status')?.setAttribute('data-complete', 'true');
-			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-				const blob = doc.output('blob');
-				// window.open(doc.output('bloburl') as URL, '_blank');
-				window.open(URL.createObjectURL(blob), '_blank');
-			} else {
-				doc.save(`${author}_${title}`);
-			}
-			container.remove();
-			document.querySelector('.complete-page')?.classList.remove('has-container');
-		});
-	}
-
-	async function addPage(addPageFlag = true, insertPageFlag = false) {
-		const canvas = await html2canvas(container);
-		container.appendChild(canvas);
-		const image = canvas.toDataURL('image/png');
-		if (addPageFlag) doc.addPage('a5', 'p');
-		if (insertPageFlag) doc.insertPage(2);
-		doc.addImage(image, 'PNG', 0, 0, 148, 210);
-		container.removeChild(canvas);
-	}
-
-	function setProgress(value: number) {
-		status.setAttribute('data-width', `${value}%`);
-	}
+	createBookPDF(book);
 };
 
 export const BookActions = {
