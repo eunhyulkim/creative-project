@@ -7,13 +7,9 @@ Typescript와 React, Jest와 Storybook으로 개발하였으며 일반적인 에
 # 스크린샷
 
 <p align="center">
-  <img src="/public/readme/writer1.png" alt="실시간 메시지 알림 화면" width="738">
-</p>
-<p align="center">
-  <img src="/public/readme/writer2.png" alt="분석 리포트 화면" width="738">
-</p>
-<p align="center">
-  <img src="/public/readme/writer3.png" alt="에디팅 룰 설정 화면" width="738">
+  <img src="/public/readme/writer1.png" alt="실시간 메시지 알림 화면" width="300">
+  <img src="/public/readme/writer2.png" alt="분석 리포트 화면" width="300">
+  <img src="/public/readme/writer3.png" alt="에디팅 룰 설정 화면" width="300">
 </p>
 
 # 구현된 테크니컬 룰
