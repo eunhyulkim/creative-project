@@ -1,11 +1,14 @@
 {
   "folders": [
-	{
-		"path": "."
-	},
-	{
-		"path": "../reference"
-	}
+    {
+        "path": "."
+    },
+    {
+        "path": "../reference"
+    },
+    {
+        "path": "../kmong"
+    }
 ],
 "settings": {
     "cSpell.words": [

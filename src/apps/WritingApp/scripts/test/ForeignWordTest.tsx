@@ -2,6 +2,7 @@ import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
 import Test from '../Test';
 
 const Error = {
+	symbol: 'FOREIGN_WORD',
 	name: '외래어',
 	description: '기술 용어가 외래어 표기에 맞지 않습니다.',
 	message: '기술 용어 외래어 표기에 맞지 않습니다.',
@@ -31,7 +32,7 @@ const foreignWords = [
 
 class ForeignWordTest extends Test {
 	constructor() {
-		super(Error.name, Error.description, Error.message);
+		super(Error.symbol, Error.name, Error.description, Error.message);
 	}
 
 	testParagraph({ paragraph }: testParagraphProps): boolean {

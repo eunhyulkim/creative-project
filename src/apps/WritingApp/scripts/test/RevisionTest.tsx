@@ -2,13 +2,14 @@ import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
 import Test from '../Test';
 
 const Error = {
+	symbol: 'REVISION',
 	name: '개조식',
 	description: '개조식 사용 방법을 일관적으로 정의합니다.',
 	message: '지정된 개조식 타입과 맞지 않습니다.',
 };
 class RevisionTest extends Test {
 	constructor() {
-		super(Error.name, Error.description, Error.message);
+		super(Error.symbol, Error.name, Error.description, Error.message);
 	}
 
 	testParagraph({ paragraph }: testParagraphProps): boolean {

@@ -2,6 +2,7 @@ import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
 import Test from '../Test';
 
 const Error = {
+	symbol: 'DOUBLE_NEGATIVE',
 	name: '이중부정',
 	description: '이중 부정보다는 긍정문을 사용하는 것을 권장합니다.',
 	message: '이중부정을 사용하고 있습니다.',
@@ -59,7 +60,7 @@ const matchWords = ['안', '말아요', '마세요', '말라', '마라', '마요
 
 class DoubleNegativeTest extends Test {
 	constructor() {
-		super(Error.name, Error.description, Error.message);
+		super(Error.symbol, Error.name, Error.description, Error.message);
 	}
 
 	testParagraph({ paragraph }: testParagraphProps): boolean {

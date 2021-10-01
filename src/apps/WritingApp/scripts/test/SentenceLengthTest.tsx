@@ -2,6 +2,7 @@ import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
 import Test from '../Test';
 
 const Error = {
+	symbol: 'SENTENCE_LENGTH',
 	name: '긴 문장',
 	description: '문장의 길이가 최대 글자 수를 초과합니다.',
 	message: '문장의 길이가 최대 글자 수를 초과합니다.',
@@ -9,7 +10,7 @@ const Error = {
 
 class SentenceLengthTest extends Test {
 	constructor() {
-		super(Error.name, Error.description, Error.message);
+		super(Error.symbol, Error.name, Error.description, Error.message);
 	}
 
 	testParagraph({ paragraph }: testParagraphProps): boolean {

@@ -18,18 +18,21 @@ export interface testSentenceProps {
 export default abstract class Test {
 	name: string;
 
+	symbol: string;
+
 	message: string;
 
 	description: string;
 
-	constructor(name: string, message: string, description: string) {
+	constructor(symbol: string, name: string, message: string, description: string) {
+		this.symbol = symbol;
 		this.name = name;
 		this.message = message;
 		this.description = description;
 	}
 
 	run(paragraphs: string[][], config: Config): null | WritingError[] {
-		if (!config[this.name as ConfigNames].checked) return null;
+		if (!config[this.symbol as ConfigNames].checked) return null;
 
 		const collection: Array<WritingError> = [];
 		paragraphs.forEach((paragraph, pidx) => {
