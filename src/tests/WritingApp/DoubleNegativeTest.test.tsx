@@ -1,5 +1,5 @@
 import React from 'react';
-import test from 'apps/WritingApp/scripts/test/DoubleNegativeTest';
+import DoubleNegativeTest from 'apps/WritingApp/scripts/test/DoubleNegativeTest';
 import { CONFIG_INITIAL_STATE } from 'apps/WritingApp/scripts/Config';
 
 const config = CONFIG_INITIAL_STATE;
@@ -10,27 +10,27 @@ const wrongParagraphs = [
 	[['그렇게 행동 안 하면 안 될까?']],
 	[['네가 못한게 있을리가 없잖아']],
 ];
-
+const test = new DoubleNegativeTest();
 describe.each(rightParagraphs)('RightCase', (rightParagraph) => {
 	it('toggle on', () => {
 		config[ENG_SYM].checked = true;
-		expect(test([rightParagraph], config)).toBeNull();
+		expect(test.run([rightParagraph], config)).toBeNull();
 	});
 
 	it('toggles off', () => {
 		config[ENG_SYM].checked = false;
-		expect(test([rightParagraph], config)).toBeNull();
+		expect(test.run([rightParagraph], config)).toBeNull();
 	});
 });
 
 describe.each(wrongParagraphs)('WrongCase', (wrongParagraph) => {
 	it('toggle on', () => {
 		config[ENG_SYM].checked = true;
-		expect(test([wrongParagraph], config)).not.toBeNull();
+		expect(test.run([wrongParagraph], config)).not.toBeNull();
 	});
 
 	it('toggles off', () => {
 		config[ENG_SYM].checked = false;
-		expect(test([wrongParagraph], config)).toBeNull();
+		expect(test.run([wrongParagraph], config)).toBeNull();
 	});
 });
