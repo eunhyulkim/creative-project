@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "node-sass": "^6.0.1",
     "octokit": "^1.5.0",
+    "pre-push": "^0.1.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -48,11 +49,9 @@
     "lint": "eslint './src/**/*.{ts,tsx,ico}'",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx,ico}'"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn test:no-watch"
-    }
-  },
+  "pre-push": [
+    "test:no-watch"
+  ],
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -102,7 +101,6 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.2",
     "prettier": "^2.3.1",
     "sass": "^1.39.0",
     "sass-loader": "^11.1.1",
