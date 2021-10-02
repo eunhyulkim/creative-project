@@ -16,6 +16,7 @@
     "classnames": "^2.3.1",
     "html-react-parser": "^1.2.7",
     "html2canvas": "^1.3.2",
+    "husky": "^7.0.2",
     "immer": "^9.0.5",
     "jspdf": "^2.4.0",
     "lodash": "^4.17.21",
@@ -47,6 +48,11 @@
     "prettier": "prettier --write --config ./.prettierrc \"**/*.{ts,tsx,ico}\"",
     "lint": "eslint './src/**/*.{ts,tsx,ico}'",
     "lint:fix": "eslint --fix './src/**/*.{ts,tsx,ico}'"
+  },
+  "husky": {
+      "hooks": {
+          "pre-push": "yarn test:no-watch"
+      }
   },
   "eslintConfig": {
     "extends": [
