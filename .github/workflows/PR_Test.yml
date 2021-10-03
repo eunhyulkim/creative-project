@@ -1,9 +1,9 @@
 name: PR Test
 on: 
   pull_request:
-  branches:
-    - develop
-    - main
+    branches:
+      - develop
+      - main
 
 jobs: 
   Run Jest:
