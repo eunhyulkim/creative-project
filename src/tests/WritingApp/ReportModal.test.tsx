@@ -1,5 +1,8 @@
 import React from 'react';
-import { ErrorsContext, ReportModal, WritingError, ModalHandler, useModal } from 'apps/WritingApp';
+import { ErrorsContext } from 'apps/WritingApp';
+import { ReportModal } from 'apps/WritingApp/components';
+import { useModal, ModalHandler } from 'apps/WritingApp/hooks';
+import { WritingError } from 'apps/WritingApp/scripts';
 import { WritingApp } from 'apps';
 
 import { fireEvent, render } from '@testing-library/react';

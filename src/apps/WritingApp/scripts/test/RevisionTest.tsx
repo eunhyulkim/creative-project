@@ -1,5 +1,4 @@
-import { testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts';
-import Test from '../Test';
+import { Test, testParagraphProps, testSentenceProps } from 'apps/WritingApp/scripts/Test';
 
 const Error = {
 	symbol: 'REVISION',

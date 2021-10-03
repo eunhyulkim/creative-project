@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches:
+      - fix/*
+      - feat/*
+
+jobs: 
+  create-pull-request:
+    runs-on: [ubuntu-latest]
+    strategy:
+      matrix:
+        node-version: [.x] # ".x" 로 최신 버전도 사용하고 직접 버전 지정도 가능하다
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Create Pull Request
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "develop"
+          github_token: "${{ secrets.GIT_TOKEN }}"
+          pr_label: "Automated PR"
+          pr_title: '[CI] Pull Request'

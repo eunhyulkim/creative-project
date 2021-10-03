@@ -1,5 +1,5 @@
 import React from 'react';
-import test from 'apps/WritingApp/scripts/test/BannedTest';
+import BannedTest from 'apps/WritingApp/scripts/test/BannedTest';
 import { CONFIG_INITIAL_STATE } from 'apps/WritingApp/scripts/Config';
 import { before } from 'lodash';
 
@@ -14,6 +14,7 @@ const wrongParagraphs = [
 	[['제외 단어다']],
 	[['금지어가 포함된 문장']],
 ];
+const test = new BannedTest();
 
 beforeAll(() => {
 	config[ENG_SYM].value = '금지어,금기어, 제외어,  제외 단어';
@@ -22,23 +23,23 @@ beforeAll(() => {
 describe.each(rightParagraphs)('RightCase', (rightParagraph) => {
 	it('toggle on', () => {
 		config[ENG_SYM].checked = true;
-		expect(test([rightParagraph], config)).toBeNull();
+		expect(test.run([rightParagraph], config)).toBeNull();
 	});
 
 	it('toggles off', () => {
 		config[ENG_SYM].checked = false;
-		expect(test([rightParagraph], config)).toBeNull();
+		expect(test.run([rightParagraph], config)).toBeNull();
 	});
 });
 
 describe.each(wrongParagraphs)('WrongCase', (wrongParagraph) => {
 	it('toggle on', () => {
 		config[ENG_SYM].checked = true;
-		expect(test([wrongParagraph], config)).not.toBeNull();
+		expect(test.run([wrongParagraph], config)).not.toBeNull();
 	});
 
 	it('toggles off', () => {
 		config[ENG_SYM].checked = false;
-		expect(test([wrongParagraph], config)).toBeNull();
+		expect(test.run([wrongParagraph], config)).toBeNull();
 	});
 });

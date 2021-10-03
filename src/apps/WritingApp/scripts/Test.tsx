@@ -1,6 +1,6 @@
-// import { Config, WritingError, WritingError, Test, Config } from 'apps/WritingApp';
-import { Config, WritingError, ConfigNames } from '.';
-// export type Test = (paragraphs: string[][], config: Config) => WritingError | WritingError[] | null;
+import { Config } from './Config';
+import WritingError from './WritingError';
+import { ConfigNames } from './index';
 
 export interface testParagraphProps {
 	paragraph: string[];
@@ -15,7 +15,7 @@ export interface testSentenceProps {
 	sidx?: number;
 	config: Config;
 }
-export default abstract class Test {
+export abstract class Test {
 	name: string;
 
 	symbol: string;
