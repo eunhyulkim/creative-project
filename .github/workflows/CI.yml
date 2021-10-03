@@ -1,2 +1,13 @@
-- name: Create Pull Request
-  uses: peter-evans/create-pull-request@v3.10.1
+name: CI
+on: push 
+
+jobs: 
+  run-jest:
+    runs-on: [ubuntu-latest]
+    strategy:
+      matrix:
+        node-version: [.x] # ".x" 로 최신 버전도 사용하고 직접 버전 지정도 가능하다
+    steps: 
+      - uses: actions/checkout@v2
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.10.1
