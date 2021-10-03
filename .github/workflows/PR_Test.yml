@@ -13,11 +13,11 @@ jobs:
         node-version: [8.x, 10.x, 12.x] # ".x" 로 최신 버전도 사용하고 직접 버전 지정도 가능하다
     steps: 
       - uses: actions/checkout@v2
-      - name: npm install
-      run: yarn install
+      - name: yarn install
+        run: yarn install
       - name: yarn test code
-      run: yarn test:no-watch
-        - name: if fail
+        run: yarn test:no-watch
+          - name: if fail
       uses: actions/github-script@0.2.0
       with:
         github-token: ${{github.token}}
