@@ -16,6 +16,6 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "develop"
-          github_token: "${{ secrets.TOKEN }}"
+          github_token: "${{ secrets.GIT_TOKEN }}"
           pr_label: "feature, automated pr"
           pr_title: '[CI] Pull Request'
