@@ -12,5 +12,6 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3.10.1
         with:
+          token: "${{ secrets.TOKEN }}"
           branch: develop
           title: '[CI] Pull Request' 
