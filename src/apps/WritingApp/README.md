@@ -1,4 +1,4 @@
-# 테크니컬 라이터
+# 테크니컬 라이터 <img src="https://img.shields.io/badge/technical--writer-0.1-green">
 
 **테크니컬 라이터** 는 기술문서 작성을 돕는, 린터가 탑재된 에디터입니다.
 
