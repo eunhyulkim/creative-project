@@ -1,4 +1,4 @@
-# 책 만들기(Book Creator)
+# 책 만들기(Book Creator) <img src="https://img.shields.io/badge/book--creator-0.1-yellowgreen">
 
 **책 만들기(Book Creator)** 는 책 형식의 PDF를 손쉽게 만드는 웹 어플리케이션입니다. 
 
