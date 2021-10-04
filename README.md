@@ -25,3 +25,8 @@
 
 - 📝 린터가 탑재된 [테크니컬 라이터](https://github.com/eunhyulkim/creative-project/tree/main/src/apps/WritingApp)
 - 📚 손 쉽게 책 형식의 PDF를 만드는 [북 크리에이터](https://github.com/eunhyulkim/creative-project/tree/main/src/apps/CreateBookApp)
+
+### Issue
+- 모바일 크롬에서 홈 화면의 애니메이션이 늦게 동작합니다. 각 콘텐츠가 클릭되지 않는 경우가 있습니다.
+- 사용자가 콘텐츠를 인식하지 못하는 경우들이 있습니다. CSS 처리를 이용해 클릭을 유도하거나, navigation으로도 접근할 수 있게 메뉴를 늘려야 합니다.
+- 콘텐츠에 대한 tab index를 처리하여 웹 접근성을 높여야 합니다.
