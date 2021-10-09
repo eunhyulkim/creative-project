@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Group, Header } from 'apps/common';
+import { Group, Header } from 'apps/common/components';
 import _ from 'lodash';
 import 'stylesheets/writing-app.scss';
 import Helmet from 'react-helmet';
@@ -33,7 +33,7 @@ function WritingApp(): JSX.Element {
 			<div className="writing-app">
 				<Header type="fixed">
 					<strong>테크니컬 라이터</strong>
-					<Group classes="header--section">
+					<Group className="header--section">
 						<Counter count={count} />
 						<ReportButton handler={modalHandler} />
 						<ConfigButton handler={modalHandler} />

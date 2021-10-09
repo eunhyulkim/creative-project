@@ -12,7 +12,7 @@ interface TextareaProps extends ComponentProps {
 
 const Textarea = React.forwardRef(
 	(
-		{ onClick, onInput, onChange, placeholder = '', classes = [] }: TextareaProps,
+		{ onClick, onInput, onChange, placeholder = '', className = [] }: TextareaProps,
 		ref: React.LegacyRef<HTMLTextAreaElement>
 	): JSX.Element => {
 		return (
@@ -21,7 +21,7 @@ const Textarea = React.forwardRef(
 				onClick={onClick?.bind(null, '')}
 				onInput={onInput}
 				onChange={onChange}
-				className={classNames(classes)}
+				className={classNames(className, 'p-4')}
 				placeholder={placeholder}
 			/>
 		);

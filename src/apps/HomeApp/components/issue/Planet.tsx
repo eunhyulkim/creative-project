@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { Track } from 'apps/HomeApp/components';
+import classNames from 'classnames';
 
 interface PlanetProps {
 	app: {
@@ -24,7 +25,7 @@ const Planet = ({ app }: PlanetProps): JSX.Element => {
 
 	return (
 		<>
-			<a href={app.path} style={styles} className="planet">
+			<a href={app.path} style={styles} className={classNames('planet', 'bg-white hover:bg-semi-white')}>
 				{app.name.split(' ').map((word) => (
 					<div key={word}>{word}</div>
 				))}

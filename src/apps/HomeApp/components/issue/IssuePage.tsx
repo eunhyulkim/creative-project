@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Select } from 'apps/common';
+import { Select } from 'apps/common/components';
 import classNames from 'classnames';
 import { ThemeContext } from 'apps/HomeApp';
 import { submitIssue } from 'apps/HomeApp/scripts';
@@ -15,7 +15,7 @@ function IssuePage(): JSX.Element {
 		<div className="issue-page">
 			<div className="issue-box">
 				<div className={classNames('issue-box--header', { dark: theme === 'dark' })}>Issue Report</div>
-				<form onSubmit={submitIssue} className="issue-box--form" action="/" id="issue-form">
+				<form onSubmit={submitIssue} className={classNames('issue-box--form', 'p-16')} action="/" id="issue-form">
 					<Select label="이슈" name="select" options={config.options} value={config.value} />
 					<textarea name="message" />
 					<input type="submit" value="Submit" />

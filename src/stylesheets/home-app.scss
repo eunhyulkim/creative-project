@@ -10,14 +10,12 @@ $primary-font: 'Song Myung';
 }
 
 .home-app {
-    padding: 2rem;
     overflow-x: hidden;
     height: calc(100vh - 4rem);
     transition: all .2s ease-in-out;
 
     &.dark {
         background-color: $black;
-        
     }
     
     & a {
@@ -28,7 +26,6 @@ $primary-font: 'Song Myung';
     }
 
     & .navigation {       
-        
         position: relative;
         z-index: 15;
 
@@ -38,7 +35,6 @@ $primary-font: 'Song Myung';
 
         &--title {
             display: inline-block;
-            margin-right: 2rem;
             transition: all .2s ease-in-out;
             
             font: {
@@ -81,8 +77,8 @@ $primary-font: 'Song Myung';
         }
 
         & .theme-toggle-icon {
+            display: inline;
             transform: scale(1.2);
-            margin-left: 0.5rem;
             cursor: pointer;
             transition: all .2s ease-in-out;
 
@@ -97,7 +93,6 @@ $primary-font: 'Song Myung';
     }
 
     & .universe {
-        padding-top: 2rem;
         position: relative;
 
         &.dark {
@@ -116,16 +111,15 @@ $primary-font: 'Song Myung';
             @include flexible('column');
             justify-content: center;
             position: absolute;
-            background-color: $real-white;
             border: 1px solid $black;
             border-radius: 50%;
             font-family: 'Song Myung';
             font-size: 2vw;
             animation: rotate 20s linear infinite;
+            -webkit-animation: rotate 20s linear infinite;
             z-index: 5;
-    
+            
             &:hover {
-                background-color: $white;
                 cursor: pointer;
                 animation-play-state: paused;
             }    
@@ -182,9 +176,7 @@ $primary-font: 'Song Myung';
             }
     
             &--form {
-                background-color: $white;
-                padding: 2rem;
-                
+                background-color: $white;                
                 & label {
                     font-weight: 700;
                 }
@@ -267,14 +259,6 @@ $primary-font: 'Song Myung';
         }
 
         &--description {
-            margin-top: 2rem;
-            width: 80%;
-            line-height: 2.2rem;
-            font: {
-                size: 1.4rem;
-                family: 'ui-sans-serif';
-            }
-
             & div {
                 margin-bottom: 1.2rem;
             }

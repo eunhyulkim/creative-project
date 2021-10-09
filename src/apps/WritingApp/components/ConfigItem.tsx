@@ -2,7 +2,7 @@ import React from 'react';
 import { Config, ConfigNames, RangeType, SelectType, CheckboxType, InputType } from 'apps/WritingApp/scripts';
 import { Toggle, Description, Range, Checkbox } from 'apps/WritingApp/components';
 import { ConfigContext } from 'apps/WritingApp';
-import { Heading, Input, Select } from 'apps/common';
+import { Heading, Input, Select } from 'apps/common/components';
 
 interface ConfigItemProps {
 	name: ConfigNames;
@@ -41,7 +41,7 @@ const ConfigItem = ({ name }: ConfigItemProps): JSX.Element => {
 				<Heading size="third" color="black">
 					{title}
 				</Heading>
-				<Toggle checked={checked} name={name} classes="config-item--toggle" />
+				<Toggle checked={checked} name={name} className="config-item--toggle" />
 			</div>
 			{checked && (
 				<div className="config-item--body">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Input } from 'apps/common';
+import { Input } from 'apps/common/components';
 
 export default {
 	title: 'Form/Input',

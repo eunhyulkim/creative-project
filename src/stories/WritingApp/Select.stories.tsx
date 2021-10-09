@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Select } from 'apps/common';
+import { Select } from 'apps/common/components';
 
 export default {
 	title: 'Form/Select',

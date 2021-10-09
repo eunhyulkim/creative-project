@@ -6,9 +6,9 @@ interface HeaderProps extends ComponentProps {
 	type?: 'default' | 'fixed';
 }
 
-const Header = ({ color = 'primary', type = 'default', children, classes, ...props }: HeaderProps): JSX.Element => {
+const Header = ({ color = 'primary', type = 'default', children, className, ...props }: HeaderProps): JSX.Element => {
 	return (
-		<div className={classNames(`header--${type}`, color, classes)} {...props}>
+		<div className={classNames(`header--${type}`, color, className)} {...props}>
 			{children}
 		</div>
 	);

@@ -8,7 +8,7 @@ interface ToggleProps extends ComponentProps {
 	checked?: boolean;
 }
 
-const Toggle = ({ name, checked = false, color = 'primary', classes }: ToggleProps): JSX.Element => {
+const Toggle = ({ name, checked = false, color = 'primary', className }: ToggleProps): JSX.Element => {
 	const [ref, onclick] = useToggle();
 	return (
 		<label htmlFor={name} className="toggle--label" data-checked={checked}>
@@ -19,10 +19,10 @@ const Toggle = ({ name, checked = false, color = 'primary', classes }: TogglePro
 				type="checkbox"
 				name={name}
 				checked={checked}
-				className={classNames(classes)}
+				className={classNames(className)}
 				readOnly
 			/>
-			<div onClick={onclick} className={classNames('toggle--button', classes)} />
+			<div onClick={onclick} className={classNames('toggle--button', className)} />
 			{checked || <span>OFF</span>}
 		</label>
 	);

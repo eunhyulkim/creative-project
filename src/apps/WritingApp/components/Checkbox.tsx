@@ -7,10 +7,10 @@ interface CheckboxProps extends ComponentProps {
 	name: string;
 }
 
-const Checkbox = ({ options, name, classes }: CheckboxProps): JSX.Element => {
+const Checkbox = ({ options, name, className }: CheckboxProps): JSX.Element => {
 	const opts = Object.entries(options);
 	return (
-		<div className={classNames(name, classes, 'checkbox')}>
+		<div className={classNames(name, className, 'checkbox')}>
 			{opts.map(([opt, checked]) => (
 				<React.Fragment key={opt}>
 					<input

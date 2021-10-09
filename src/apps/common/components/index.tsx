@@ -1,0 +1,10 @@
+export { default as Image } from './Image';
+export { default as Heading } from './Heading';
+export { default as Paragraph } from './Paragraph';
+export { default as Button } from './Button';
+export { default as Input } from './Input';
+export { default as RandomIcon } from './RandomIcon';
+export { default as Group } from './Group';
+export { default as Text } from './Text';
+export { default as Header } from './Header';
+export { default as Select } from './Select';

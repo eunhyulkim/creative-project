@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Cover, CoverTitle, CoverAuthor } from 'apps/CreateBookApp/components';
 import { AuthorStyle, TitleStyle, Chapter } from 'store/book';
-import { Text } from 'apps/common';
+import { Text } from 'apps/common/components';
 
 interface BookTableProps {
 	chapters: Chapter[];
@@ -12,14 +12,14 @@ interface BookTableProps {
 function BookTable({ chapters, pages }: BookTableProps): JSX.Element {
 	return (
 		<div className="book--table">
-			<Text classes="book--table--subject" content="차례" />
+			<Text className="book--table--subject" content="차례" />
 			{chapters.map((chapter, idx) => {
 				const page = String(pages[idx]);
 				return (
 					<div className="book--table--row">
-						<Text classes="title" content={chapter.title} />
+						<Text className="title" content={chapter.title} />
 						<hr style={{ width: Math.max(400 - (chapter.title.length * 15 + page.length * 10), 10) }} />
-						<Text classes="page" content={page} />
+						<Text className="page" content={page} />
 					</div>
 				);
 			})}

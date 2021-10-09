@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import classNames from 'classnames';
-import { Heading, Button, Group } from 'apps/common';
+import { Heading, Button, Group } from 'apps/common/components';
 import { useDispatch, useSelector } from 'react-redux';
 import { BookActions, Book } from 'store/book';
 import { Redirect } from 'react-router-dom';
@@ -55,9 +55,9 @@ function ContentPage(): JSX.Element {
 				className={classNames('textarea', 'bottom')}
 				placeholder="본문을 입력하세요"
 			/>
-			<Group classes="button-group">
-				<Button onClick={onNext} classes="next" size="large" round="circle" color="real-white" label="다음" />
-				<Button onClick={onComplete} classes="next" size="large" round="circle" color="black" label="완성" />
+			<Group className="button-group">
+				<Button onClick={onNext} className="next" size="large" round="circle" color="real-white" label="다음" />
+				<Button onClick={onComplete} className="next" size="large" round="circle" color="black" label="완성" />
 			</Group>
 		</div>
 	);

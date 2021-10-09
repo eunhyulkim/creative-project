@@ -5,6 +5,7 @@
         "noninteractive",
         "octokit",
         "pidx",
-        "sidx"
+        "sidx",
+        "tailwind"
     ]
 }

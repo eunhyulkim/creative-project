@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { Heading, Input, Button, RandomIcon } from 'apps/common';
+import { Heading, Input, Button, RandomIcon } from 'apps/common/components';
 import { CoverCanvasContainer } from 'apps/CreateBookApp';
 import { useDispatch } from 'react-redux';
 import { BookActions } from 'store/book';
@@ -30,7 +30,14 @@ function TitlePage(): JSX.Element {
 				center
 				focus
 			/>
-			<Button onClick={() => setComplete(true)} classes="next" size="large" round="circle" color="black" label="다음" />
+			<Button
+				onClick={() => setComplete(true)}
+				className="next"
+				size="large"
+				round="circle"
+				color="black"
+				label="다음"
+			/>
 		</div>
 	);
 }

@@ -1,15 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { ColorType } from 'ui-types';
+import { ColorType, ComponentProps } from 'ui-types';
 
 type ButtonType = 'default' | 'text' | 'outline';
 
-interface ButtonProps {
+interface ButtonProps extends ComponentProps {
 	size?: 'small' | 'medium' | 'large';
 	round?: 'square' | 'circle';
 	color?: ColorType;
 	type?: ButtonType;
-	classes?: string[] | string;
 	label: string;
 	children?: React.ReactNode;
 	onClick?: () => void;
@@ -31,7 +30,7 @@ const Button = ({
 	round = 'square',
 	color = 'primary',
 	type = 'default',
-	classes,
+	className,
 	children,
 	label,
 	...props
@@ -39,7 +38,7 @@ const Button = ({
 	return (
 		<button
 			type="button"
-			className={classNames(`button--${round} ${size}`, convertColor(type, color), classes)}
+			className={classNames(`button--${round} ${size}`, convertColor(type, color), className)}
 			{...props}
 		>
 			{label}

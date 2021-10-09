@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'apps/common';
+import { Text } from 'apps/common/components';
 
 interface BookContentProps {
 	page: number;
@@ -13,9 +13,9 @@ function BookContent({ page, title, body }: BookContentProps): JSX.Element {
 
 	return (
 		<>
-			<Text classes="content--title" content={title} />
-			<Text classes="content--body" content={body} innerWrapper />
-			<Text classes="content--number" content={footer} />
+			<Text className="content--title" content={title} />
+			<Text className="content--body" content={body} innerWrapper />
+			<Text className="content--number" content={footer} />
 		</>
 	);
 }

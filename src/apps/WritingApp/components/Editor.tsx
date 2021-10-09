@@ -17,7 +17,7 @@ interface EditorProps {
 const Editor = React.memo(
 	({ onClick, onInput, callback, copyable = false, setCopyable = undefined, ...props }: EditorProps): JSX.Element => {
 		const scroll = useScroll();
-		const classes = useMemo(() => ['editor'], []);
+		const className = useMemo(() => ['editor'], []);
 		const editor: React.RefObject<HTMLTextAreaElement> = useRef(null);
 
 		useAnalysisEffect(callback, editor);
@@ -29,7 +29,7 @@ const Editor = React.memo(
 				onClick={onClick}
 				onInput={onInput}
 				onChange={scroll}
-				classes={classes}
+				className={className}
 				ref={editor}
 			/>
 		);

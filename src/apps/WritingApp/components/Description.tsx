@@ -6,8 +6,8 @@ interface DescriptionProps extends ComponentProps {
 	bold?: boolean;
 }
 
-const Description = ({ classes, color = 'gray', bold, children }: DescriptionProps): JSX.Element => {
-	return <p className={classNames('description', color, { bold }, classes)}>{children}</p>;
+const Description = ({ className, color = 'gray', bold, children }: DescriptionProps): JSX.Element => {
+	return <p className={classNames('description', color, { bold }, className)}>{children}</p>;
 };
 
 export default Description;

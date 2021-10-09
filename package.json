@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.3.0",
     "@octokit/request": "octokit/request",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -37,9 +38,9 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "test:no-watch": "yarn test --watchAll=false --json --outputFile=./src/jest-test-results.json",
     "test:watch": "yarn test --json --outputFile=./src/jest-test-results.json",
     "eject": "react-scripts eject",
@@ -93,6 +94,7 @@
     "@types/redux-logger": "^3.0.9",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
+    "autoprefixer": "^9.8.8",
     "eslint": "^7.29.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -102,10 +104,12 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "jest-canvas-mock": "^2.3.1",
+    "postcss": "^7.0.39",
     "prettier": "^2.3.1",
     "sass": "^1.39.0",
     "sass-loader": "^11.1.1",
     "storybook-react-context": "^0.4.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.16",
     "ts-jest": "^27.0.3"
   }
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { ErrorsContext } from 'apps/WritingApp';
-import { Heading } from 'apps/common';
+import { Heading } from 'apps/common/components';
 import classNames from 'classnames';
 import _ from 'lodash';
 import { Modal } from '.';

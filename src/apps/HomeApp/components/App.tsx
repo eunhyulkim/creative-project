@@ -25,7 +25,7 @@ function App({ match }: RouteComponentProps): JSX.Element {
 
 	return (
 		<ThemeContext.Provider value={theme}>
-			<div onMouseMove={onMouseMove} className={classNames(['home-app', { dark }])}>
+			<div onMouseMove={onMouseMove} className={classNames(['home-app', 'p-8 leading-relaxed', { dark }])}>
 				<Navigation title="크리에이티브-프로젝트">
 					<Link to="/info">info</Link>
 					<Link to="/issue">issue</Link>

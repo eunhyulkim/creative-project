@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import { Image, Heading, Paragraph, Button } from 'apps/common';
+import { Image, Heading, Paragraph, Button } from 'apps/common/components';
 import { HtmlTempContainer } from 'apps/CreateBookApp/components';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,7 +46,7 @@ function CompletePage(): JSX.Element {
 
 	return (
 		<div className={classNames('complete-page', { 'has-container': !error })}>
-			<Image classes="main-logo" src={page.src} alt={page.alt} />
+			<Image className="main-logo" src={page.src} alt={page.alt} />
 			<Heading color="black" size="second">
 				{page.heading}
 			</Heading>
@@ -57,7 +57,7 @@ function CompletePage(): JSX.Element {
 				</div>
 			)}
 			<Button size="large" round="circle" color="black" label={page.button} onClick={() => setNext(true)} />
-			<HtmlTempContainer classes="A5" />
+			<HtmlTempContainer className="A5" />
 		</div>
 	);
 }

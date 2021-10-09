@@ -26,6 +26,6 @@ export type ColorType =
 
 export interface ComponentProps {
 	color?: ColorType;
-	classes?: string[] | string;
+	className?: string[] | string;
 	children?: React.ReactNode;
 }

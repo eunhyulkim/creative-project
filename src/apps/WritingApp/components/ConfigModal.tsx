@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConfigContext } from 'apps/WritingApp';
-import { Heading } from 'apps/common';
+import { Heading } from 'apps/common/components';
 import { isConfigName } from '../scripts';
 import { ModalHandler } from '../hooks';
 import { Modal, Description, ConfigItem } from '.';

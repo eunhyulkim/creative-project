@@ -14,5 +14,5 @@ Default.args = {};
 
 export const Editor = Template.bind({});
 Editor.args = {
-	classes: ['editor'],
+	className: ['editor'],
 };

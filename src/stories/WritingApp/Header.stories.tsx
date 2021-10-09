@@ -5,12 +5,12 @@ import { ColorType } from 'ui-types';
 import { useModal, useCounter } from 'apps/WritingApp/hooks';
 import { Counter, ReportButton, CopyButton, ConfigButton } from 'apps/WritingApp/components';
 
-import { Group } from 'apps/common';
+import { Group } from 'apps/common/components';
 
 interface HeaderProps {
 	color?: ColorType;
 	type?: 'default' | 'fixed';
-	classes?: string[];
+	className?: string[];
 	children?: React.ReactNode;
 }
 
@@ -18,7 +18,7 @@ const HeaderWithHook = ({
 	color = 'primary',
 	type = 'default',
 	children,
-	classes,
+	className,
 	...props
 }: HeaderProps): JSX.Element => {
 	const modalHandler = useModal();
@@ -26,9 +26,9 @@ const HeaderWithHook = ({
 	const [copyable, setCopyable] = useState(false);
 
 	return (
-		<div className={classNames(`header--${type}`, color, classes)} {...props}>
+		<div className={classNames(`header--${type}`, color, className)} {...props}>
 			<strong>테크니컬 라이터</strong>
-			<Group classes={['header--section']}>
+			<Group className={['header--section']}>
 				<Counter count={count} />
 				<ReportButton handler={modalHandler} />
 				<ConfigButton handler={modalHandler} />

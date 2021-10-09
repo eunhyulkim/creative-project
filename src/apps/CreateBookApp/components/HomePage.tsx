@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Heading, Paragraph, Button } from 'apps/common';
+import { Image, Heading, Paragraph, Button } from 'apps/common/components';
 import { Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { BookActions } from 'store/book';
@@ -19,7 +19,7 @@ function HomePage(): JSX.Element {
 
 	return (
 		<div className="home-page">
-			<Image classes="main-logo" src="create-book-main.png" alt="책 읽는 사람" />
+			<Image className="main-logo" src="create-book-main.png" alt="책 읽는 사람" />
 			<Heading color="black" size="second">
 				Create Your Book
 			</Heading>

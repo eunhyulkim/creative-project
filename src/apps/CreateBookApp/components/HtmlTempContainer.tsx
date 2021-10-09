@@ -1,19 +1,19 @@
 import React, { RefObject, useEffect, useRef } from 'react';
 import classNames from 'classnames';
+import { ComponentProps } from 'ui-types';
 
-interface CoverTitleProps {
-	classes?: string | string[];
+interface CoverTitleProps extends ComponentProps {
 	children?: React.ReactNode;
 }
 
-function HtmlTempContainer({ classes, children }: CoverTitleProps): JSX.Element {
+function HtmlTempContainer({ className, children }: CoverTitleProps): JSX.Element {
 	const ref = useRef<HTMLDivElement>(null);
 	useEffect(() => {
 		if (!ref || !ref.current) return;
 		ref.current.style.top = `${window.innerHeight}px`;
 	});
 	return (
-		<div ref={ref} id="html-temp-container" className={classNames(classes)}>
+		<div ref={ref} id="html-temp-container" className={classNames(className)}>
 			{children}
 		</div>
 	);

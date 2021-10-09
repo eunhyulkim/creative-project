@@ -1,18 +1,18 @@
 import React from 'react';
 import classNames from 'classnames';
 import parse from 'html-react-parser';
+import { ComponentProps } from 'ui-types';
 
-interface TextProps {
-	classes?: string[] | string;
+interface TextProps extends ComponentProps {
 	content?: string;
 	multiple?: number;
 	innerWrapper?: boolean;
 }
 
-const Text = ({ classes, content = '', innerWrapper = false, multiple = 0 }: TextProps): JSX.Element => {
+const Text = ({ className, content = '', innerWrapper = false, multiple = 0 }: TextProps): JSX.Element => {
 	if (innerWrapper) {
 		return (
-			<div className={classNames('text', classes)}>
+			<div className={classNames('text', className)}>
 				<div className="wrapper">{content ? parse(content) : ''}</div>
 			</div>
 		);
@@ -25,7 +25,7 @@ const Text = ({ classes, content = '', innerWrapper = false, multiple = 0 }: Tex
 		return <>ret</>;
 	}
 
-	return <div className={classNames('text', classes)}>{content ? parse(content) : ''}</div>;
+	return <div className={classNames('text', className)}>{content ? parse(content) : ''}</div>;
 };
 
 export default Text;

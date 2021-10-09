@@ -1,6 +1,6 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { RandomIcon, Paragraph } from 'apps/common';
+import { RandomIcon, Paragraph } from 'apps/common/components';
 import { BookActions } from 'store/book';
 import { useDispatch } from 'react-redux';
 import * as Svg from 'assets/book_cover';

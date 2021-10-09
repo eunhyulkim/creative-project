@@ -15,7 +15,7 @@ const Navigation = ({ title, classes, children }: NavigationProps): JSX.Element 
 	return (
 		<div className={classNames('navigation', { dark: theme === 'dark' }, classes)}>
 			<Link to="/">
-				<div className="navigation--title">{title}</div>
+				<div className={classNames('navigation--title', 'mr-8')}>{title}</div>
 			</Link>
 			<div className="navigation--items">{children}</div>
 		</div>
