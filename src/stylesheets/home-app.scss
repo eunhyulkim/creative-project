@@ -216,8 +216,6 @@ $primary-font: 'Song Myung';
     }
 
     & .info-page {
-        padding-left: 5vw;
-        
         &.dark {
             color: $real-white;
         }
@@ -243,11 +241,6 @@ $primary-font: 'Song Myung';
             }
 
             & .dynamic-word {
-                position: relative;
-                display: inline-block;
-                background-color: $black;
-                color: $white;
-                margin-right: 0.2rem;
                 animation: rotateX 2s linear infinite;
                 backface-visibility: hidden;
 
@@ -255,17 +248,6 @@ $primary-font: 'Song Myung';
                     background-color: $real-white;
                     color: $black;
                 }
-            }
-        }
-
-        &--description {
-            & div {
-                margin-bottom: 1.2rem;
-            }
-
-            @media only screen and (max-width: $mobile-width) {
-                width: 75vw;
-                font-size: 1.3rem;
             }
         }
     }

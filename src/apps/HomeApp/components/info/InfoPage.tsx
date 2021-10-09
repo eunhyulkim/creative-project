@@ -16,7 +16,7 @@ function InfoPage(): JSX.Element {
 		'분야를 가리지 않고 떠오르는 상상들을 하나씩 구체화시켜 갈 예정입니다. 발견되는 문제나 추가하고 싶은 기능, 기타 의견이 있으시면 자유롭게 이슈를 남겨주세요.',
 	];
 	return (
-		<div className={classNames('info-page', { dark: theme === 'dark' })}>
+		<div className={classNames('info-page', 'pl-5', { dark: theme === 'dark' })}>
 			<div className="info-page--title">
 				<div>새로운</div>
 				<div>
@@ -25,7 +25,7 @@ function InfoPage(): JSX.Element {
 				</div>
 				<div>모험의 세계</div>
 			</div>
-			<div className="info-page--description mt-8 w-4/5 text-2xl leading-relaxed">
+			<div className="info-page--description mt-8 w-3/4 sm:w-4/5 text-2xl leading-relaxed">
 				{body.map((text) => (
 					<Text className="mb-5" key={text} content={text} />
 				))}

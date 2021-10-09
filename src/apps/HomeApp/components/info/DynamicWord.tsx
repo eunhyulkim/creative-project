@@ -19,7 +19,13 @@ const DynamicWord = ({ classes, values }: DynamicWordProps): JSX.Element => {
 		return () => clearInterval(clearId);
 	});
 
-	return <span className={classNames('dynamic-word', classes, { dark })}>{values[wordIdx]}</span>;
+	return (
+		<span
+			className={classNames('dynamic-word', 'relative inline-block mr-1 bg-semi-black text-white', classes, { dark })}
+		>
+			{values[wordIdx]}
+		</span>
+	);
 };
 
 export default DynamicWord;
